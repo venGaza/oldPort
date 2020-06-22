@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overview | venGaza</title>
+    <link>https://vengaza.github.io/ctf/hackthebox/</link>
+      <atom:link href="https://vengaza.github.io/ctf/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <description>Overview</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Overview</title>
+      <link>https://vengaza.github.io/ctf/hackthebox/</link>
+    </image>
+    
+    <item>
+      <title>Invitation</title>
+      <link>https://vengaza.github.io/ctf/hackthebox/001invitation/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://vengaza.github.io/ctf/hackthebox/001invitation/</guid>
+      <description>&lt;p&gt;You are a simple life form, exiled from your home planet and in search of a new place to call home. The ruling came fast. Your taste in music was deemed to be far too &amp;ldquo;out-there-man&amp;rdquo; for anyone to possibly associate with you anymore. You were given 60 revolutions of Xenon around Fir to leave and never return. Gather whatever possessions and leave. You find your parents music collection, oddly in it is a golden disc labelled &amp;ldquo;Property of NASA, if lost please return to: EVNJAKL 1600 Ampitheatre Parkway Mountain View California.&amp;rdquo; The music on the disc was uncovered a while back and was not very interesting. This weird language that said something about &amp;ldquo;Peace, love and rock and roll. Also we&amp;rsquo;re having a really cool party tonight, so for whoever is out there, bring a friend and come along! Co-ordinates enclosed.&amp;rdquo; On the back the words &amp;ldquo;Draft, do not distribute or load onto probe&amp;rdquo; written in big red letters. That could mean anything.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll go, since you have nowhere else to go. But you&amp;rsquo;ll be careful. You well know to learn all you can about alien beings before making contact. They could be hostile, or listen to boring music. Time is slipping away fast, you race aboard the nearest ObarPool Spaceship. But you&amp;rsquo;ve never driven one&amp;hellip; what next genius?&lt;/p&gt;
+&lt;h2 id=&#34;task-enter-space-time-coordinates-misc&#34;&gt;Task: Enter Space-Time Coordinates (Misc)&lt;/h2&gt;
+&lt;p&gt;Ok well done. The console is on. It&amp;rsquo;s asking for coordinates. Beating heavily on the console yields little results, but the only time anything changes on your display is when you put in numbers.. So what numbers are you going to go for?  You see the starship&amp;rsquo;s logs, but is there a manual? Or should you just keep beating the console?&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://storage.googleapis.com/gctf-2019-attachments/00c2a73eec8abb4afb9c3ef3a161b64b451446910535bfc0cc81c2b04aa132ed&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Task Files&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arrival &amp; Reconnaissance</title>
+      <link>https://vengaza.github.io/ctf/hackthebox/002arrivalrecon/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://vengaza.github.io/ctf/hackthebox/002arrivalrecon/</guid>
+      <description>&lt;p&gt;Having successfully figured out this &amp;ldquo;coordinate&amp;rdquo; problem. The ship lurches forward violently into space. This is one of the moments when you realize that some kind of thought or plan would have been good, but typically for you and how you found yourself in this situation, you didn&amp;rsquo;t think too much before acting. Only the stars themselves know where you&amp;rsquo;ll end up.&lt;/p&gt;
+&lt;p&gt;After what seems like an eternity, or at least one full season of &amp;ldquo;Xenon&amp;rsquo;s Next Top Galactic Overlord&amp;rdquo; you arrive in a system of 9 planetary bodies, though one of them is exceptionally small. You nostalgically remember playing explodatoid with your friends and hunting down planets like this. But this small planet registers a hive of noise and activity on your ships automated scanners. There&amp;rsquo;s things there! Billions upon trillions of things, moving around, flying, swimming, sliding, falling.&lt;/p&gt;
+&lt;p&gt;Of particular interest may be the insect-like creatures flying around this planet, uniformly. One has the words &amp;ldquo;Osmium Satellites&amp;rdquo; written on it. Maybe this is a starting point to get to know what&amp;rsquo;s ahead of you.&lt;/p&gt;
+&lt;h2 id=&#34;task-satellite-networking&#34;&gt;Task: Satellite (Networking)&lt;/h2&gt;
+&lt;p&gt;Placing your ship in range of the Osmiums, you begin to receive signals. Hoping that you are not detected, because it&amp;rsquo;s too late now, you figure that it may be worth finding out what these signals mean and what information might be &amp;ldquo;borrowed&amp;rdquo; from them. Can you hear me Captain Tim? Floating in your tin can there? Your tin can has a wire to ground control?&lt;/p&gt;
+&lt;p&gt;Find something to do that isn&amp;rsquo;t staring at the Blue Planet.&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://storage.googleapis.com/gctf-2019-attachments/768be4f10429f613eb27fa3e3937fe21c7581bdca97d6909e070ab6f7dbf2fbf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Task Files&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

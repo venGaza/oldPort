@@ -3,8 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vengaza.github.io/ctf/googlectf2019/001invitation/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/ctf/hackthebox/001invitation/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/ctf/googlectf2019/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/ctf/hackthebox/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/ctf/googlectf2019/002arrivalrecon/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/ctf/hackthebox/002arrivalrecon/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/post/</loc>
+    <lastmod>2020-06-22T00:31:21-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vengaza.github.io/</loc>
-    <lastmod>2020-05-26T17:27:43-05:00</lastmod>
+    <lastmod>2020-06-22T00:31:21-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/post/welcome/</loc>
+    <lastmod>2020-06-22T00:31:21-05:00</lastmod>
   </url>
   
   <url>
@@ -38,7 +78,27 @@
   </url>
   
   <url>
+    <loc>https://vengaza.github.io/ctf/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vengaza.github.io/tag/full-stack/</loc>
+    <lastmod>2019-04-21T17:35:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/talk/ghidra/</loc>
+    <lastmod>2019-04-21T17:35:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/tag/open-source/</loc>
+    <lastmod>2019-04-21T17:35:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vengaza.github.io/talk/</loc>
     <lastmod>2019-04-21T17:35:45-05:00</lastmod>
   </url>
   
@@ -60,19 +120,11 @@
   </url>
   
   <url>
-    <loc>https://vengaza.github.io/post/</loc>
-  </url>
-  
-  <url>
     <loc>https://vengaza.github.io/publication_types/</loc>
   </url>
   
   <url>
     <loc>https://vengaza.github.io/publication/</loc>
-  </url>
-  
-  <url>
-    <loc>https://vengaza.github.io/talk/</loc>
   </url>
   
 </urlset>
