@@ -546,7 +546,7 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/ctf/googlectf2019/001invitation/">Beginner</a>
+    <a class="docs-toc-link" href="/ctf/googlectf2019/001invitation/">Beginner Quest</a>
     <ul class="nav docs-sidenav">
       
       <li class="active">
@@ -555,6 +555,10 @@
       
       <li >
         <a href="/ctf/googlectf2019/002arrivalrecon/">Arrival &amp; Reconnaissance</a>
+      </li>
+      
+      <li >
+        <a href="/ctf/googlectf2019/003home/">Home</a>
       </li>
       
     </ul>
@@ -599,6 +603,192 @@
 <p>
 <a href="https://storage.googleapis.com/gctf-2019-attachments/00c2a73eec8abb4afb9c3ef3a161b64b451446910535bfc0cc81c2b04aa132ed" target="_blank" rel="noopener">Task Files</a></p>
 <h2 id="solution">Solution</h2>
+<p>Go ahead and download the Task Files and navigate to the folder in your command line client (I&rsquo;ll be using Linux). Using the <code>ls</code> command, we&rsquo;ll list out the files to determine what we have to work with. In this task, we are given two files: a .txt file and an executable binary.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-list-out-files-using-ls">
+
+
+  <a data-fancybox="" href="/img/googlectf2019/001invitation/sol1.png" data-caption="List out files using ls">
+
+
+  <img src="/img/googlectf2019/001invitation/sol1.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    List out files using ls
+  </figcaption>
+
+
+</figure>
+
+<p>Let&rsquo;s go ahead and check what is in the text file. We&rsquo;ll use the <code>cat</code> command to print out the contents of the text tile to the console. Unfortunately, there does not seem to be anything of note here.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-run-cat-output-of-logtxt">
+
+
+  <a data-fancybox="" href="/img/googlectf2019/001invitation/sol2.png" data-caption="Run CAT output of log.txt">
+
+
+  <img src="/img/googlectf2019/001invitation/sol2.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    Run CAT output of log.txt
+  </figcaption>
+
+
+</figure>
+
+<p>Next, we will go ahead and execute the binary(If you do not have execute permission, run the following command <code>chmod +x</code>). It looks like this binary is the menu interface for the spaceship. Incidentally, the CTF destination is redacted and we get an error message when we input coordinates.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-run-the-binary-file">
+
+
+  <a data-fancybox="" href="/img/googlectf2019/001invitation/sol3.png" data-caption="Run the binary file">
+
+
+  <img src="/img/googlectf2019/001invitation/sol3.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    Run the binary file
+  </figcaption>
+
+
+</figure>
+
+<p>Exit out of the program with <code>^c</code>. Let&rsquo;s see if we can brute force the flag out of the binary by running the <code>strings</code> command on the <code>./rand2</code> binary. This technique allows us to parse out the plain text from a binary file. We see that there are plenty of plain text strings within this file, so we need a fast way to search through.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-run-strings">
+
+
+  <a data-fancybox="" href="/img/googlectf2019/001invitation/sol4.png" data-caption="Run strings">
+
+
+  <img src="/img/googlectf2019/001invitation/sol4.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    Run strings
+  </figcaption>
+
+
+</figure>
+
+<p>Fortunately, GREP will come to the rescue. We&rsquo;ll pipe the output of strings into grep input using the following command <code>strings ./rand2 | grep flag</code>. There is our flag!</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-grep-the-strings-output">
+
+
+  <a data-fancybox="" href="/img/googlectf2019/001invitation/sol5.png" data-caption="Grep the strings output">
+
+
+  <img src="/img/googlectf2019/001invitation/sol5.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    Grep the strings output
+  </figcaption>
+
+
+</figure>
+
+<p>Flag:  <code>CTF{welcome_to_googlectf}</code></p>
 
           </div>
 

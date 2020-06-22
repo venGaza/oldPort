@@ -24,6 +24,192 @@
 &lt;p&gt;
 &lt;a href=&#34;https://storage.googleapis.com/gctf-2019-attachments/00c2a73eec8abb4afb9c3ef3a161b64b451446910535bfc0cc81c2b04aa132ed&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Task Files&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+&lt;p&gt;Go ahead and download the Task Files and navigate to the folder in your command line client (I&amp;rsquo;ll be using Linux). Using the &lt;code&gt;ls&lt;/code&gt; command, we&amp;rsquo;ll list out the files to determine what we have to work with. In this task, we are given two files: a .txt file and an executable binary.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-list-out-files-using-ls&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol1.png&#34; data-caption=&#34;List out files using ls&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol1.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    List out files using ls
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go ahead and check what is in the text file. We&amp;rsquo;ll use the &lt;code&gt;cat&lt;/code&gt; command to print out the contents of the text tile to the console. Unfortunately, there does not seem to be anything of note here.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-run-cat-output-of-logtxt&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol2.png&#34; data-caption=&#34;Run CAT output of log.txt&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol2.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Run CAT output of log.txt
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Next, we will go ahead and execute the binary(If you do not have execute permission, run the following command &lt;code&gt;chmod +x&lt;/code&gt;). It looks like this binary is the menu interface for the spaceship. Incidentally, the CTF destination is redacted and we get an error message when we input coordinates.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-run-the-binary-file&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol3.png&#34; data-caption=&#34;Run the binary file&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol3.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Run the binary file
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Exit out of the program with &lt;code&gt;^c&lt;/code&gt;. Let&amp;rsquo;s see if we can brute force the flag out of the binary by running the &lt;code&gt;strings&lt;/code&gt; command on the &lt;code&gt;./rand2&lt;/code&gt; binary. This technique allows us to parse out the plain text from a binary file. We see that there are plenty of plain text strings within this file, so we need a fast way to search through.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-run-strings&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol4.png&#34; data-caption=&#34;Run strings&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol4.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Run strings
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Fortunately, GREP will come to the rescue. We&amp;rsquo;ll pipe the output of strings into grep input using the following command &lt;code&gt;strings ./rand2 | grep flag&lt;/code&gt;. There is our flag!&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-grep-the-strings-output&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol5.png&#34; data-caption=&#34;Grep the strings output&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/googlectf2019/001invitation/sol5.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Grep the strings output
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Flag:  &lt;code&gt;CTF{welcome_to_googlectf}&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -72,6 +258,21 @@
 &lt;p&gt;Find something to do that isn&amp;rsquo;t staring at the Blue Planet.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://storage.googleapis.com/gctf-2019-attachments/768be4f10429f613eb27fa3e3937fe21c7581bdca97d6909e070ab6f7dbf2fbf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Task Files&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>https://vengaza.github.io/ctf/googlectf2019/003home/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://vengaza.github.io/ctf/googlectf2019/003home/</guid>
+      <description>&lt;h2 id=&#34;task-home-computer-forensics&#34;&gt;Task: Home Computer (Forensics)&lt;/h2&gt;
+&lt;p&gt;Blunderbussing your way through the decision making process, you figure that one is as good as the other and that further research into the importance of Work Life balance is of little interest to you. You&amp;rsquo;re the decider after all. You confidently use the credentials to access the &amp;ldquo;Home Computer.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Something called &amp;ldquo;desktop&amp;rdquo; presents itself, displaying a fascinating round and bumpy creature (much like yourself) labeled  &amp;ldquo;cauliflower 4 work - GAN post.&amp;rdquo;  Your 40 hearts skip a beat.  It looks somewhat like your neighbors on XiXaX3.   ..Ah XiXaX3&amp;hellip; You&amp;rsquo;d spend summers there at the beach, an awkward kid from ObarPool on a family vacation, yearning, but without nerve, to talk to those cool sophisticated locals.&lt;/p&gt;
+&lt;p&gt;So are these &amp;ldquo;Cauliflowers&amp;rdquo; earthlings? Not at all the unrelatable bipeds you imagined them to be.  Will they be at the party?  Hopefully SarahH has left some other work data on her home computer for you to learn more.&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://storage.googleapis.com/gctf-2019-attachments/86863db246859897dda6ba3a4f5801de9109d63c9b6b69810ec4182bf44c9b75&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Task Files&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
 </description>
     </item>
