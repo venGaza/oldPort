@@ -281,7 +281,8 @@
 
       <div id="search-box">
         
-        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
         
       </div>
 
@@ -329,7 +330,7 @@
 
     
     
-    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
       <ul class="navbar-nav d-md-inline-flex">
@@ -479,24 +480,11 @@
 
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
       
-
-      
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-palette" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
       </li>
+      
+
       
 
       
@@ -531,6 +519,8 @@
   </button>
 
   
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
 </form>
 
 <nav class="collapse docs-links" id="docs-nav">
@@ -557,6 +547,18 @@
         <a href="/ctf/nsacodebreaker2019/002task2/">Task 2 - Permissions</a>
       </li>
       
+      <li >
+        <a href="/ctf/nsacodebreaker2019/003task3/">Task 3 - Turn of Events</a>
+      </li>
+      
+      <li >
+        <a href="/ctf/nsacodebreaker2019/004task4/">Task 4 - Schemes</a>
+      </li>
+      
+      <li >
+        <a href="/ctf/nsacodebreaker2019/005task5/">Task 5 - Masquerade</a>
+      </li>
+      
     </ul>
     
 
@@ -575,8 +577,18 @@
 
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#permissions-mobile-apk-analysis">Permissions (Mobile APK Analysis)</a></li>
-    <li><a href="#solution">Solution</a></li>
+    <li><a href="#permissions-mobile-apk-analysis">Permissions (Mobile APK Analysis)</a>
+      <ul>
+        <li><a href="#flags">Flags</a></li>
+      </ul>
+    </li>
+    <li><a href="#solution">Solution</a>
+      <ul>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#analysis">Analysis</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -594,13 +606,58 @@
           <div class="article-style">
             <h2 id="permissions-mobile-apk-analysis">Permissions (Mobile APK Analysis)</h2>
 <p>The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:</p>
-<p>App Permissions
-The SHA256 hash of the Code Signing Certificate
-The Common Name of the Certificate Signer</p>
+<h3 id="flags">Flags</h3>
+<ul>
+<li><input disabled="" type="checkbox"> App Permissions (Capital letters and underscores, one per line)</li>
+<li><input disabled="" type="checkbox"> SHA256 of Signing Certificate (Hexadecimal/Base16 encoded)</li>
+<li><input disabled="" type="checkbox"> Certificate Signer Name (ASCII)</li>
+</ul>
 <p>Please note that completion of task 1 is required to complete this task.</p>
 <p>
 <a href="https://codebreaker.ltsnet.net/files/task2/terrortime.pcapng?1593563870" target="_blank" rel="noopener">Task Files</a></p>
 <h2 id="solution">Solution</h2>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>apkanlyzer -h manifest permissions &lt;FILE.APK&gt;</code> - Print application permissions</li>
+<li><code>File-GetHash</code> - compute and check SHA256 message digest (Windows)</li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>
+<a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio</a> - Google IDE for Android</li>
+<li>
+<a href="https://ghidra-sre.org/" target="_blank" rel="noopener">Ghidra</a> - NSA&rsquo;s software reverse engineering suite (Optional)</li>
+</ul>
+<h3 id="analysis">Analysis</h3>
+<p>In this challenge, we&rsquo;ll continue analyzing the Terrortime APK we recovered in the previous challenge. We first need to figure out the application&rsquo;s permissions. It is first important to understand what an APK file actually is.</p>
+<blockquote>
+<p>Android Package (APK)[1] is the package file format used by the Android, and a number of other Android-based operating systems for distribution and installation of mobile apps, mobile games and middleware.</p>
+<p>&ndash; <cite><a href="https://en.wikipedia.org/wiki/Android_application_package">https://en.wikipedia.org/wiki/Android_application_package</a></cite></p>
+</blockquote>
+<p>It is also important to realize that an APK is a compiled file meaning the source code (human readable) has been transformed into machine code (computer executable). This makes it difficult to do any meaningful analysis without first figuring out a way to decompile the file to make it human readable once again. A great tool for this was released by the NSA, <mark>Ghidra</mark>. There are also other tools such JADX and APKtool. I will not be making use of these tools for this challenge, but they are important tools to be aware of when the need to reverse arises.</p>
+<p><em>* Tip: APK files can also be unzipped by changing the file extension from APK to ZIP.</em></p>
+<p>If we look at the objectives for this task, we should take notice that the information being requested
+is just the application metadata (attributes) of the file itself which means there should be no need to decompile. We just need to figure out a way to view the metadata since this capability is not natively built into our operating system. Enter <mark>Android Studio</mark>, Google&rsquo;s official Android integrated development environment (IDE) which comes with a variety of tools to make the development of Android applications easier. We are specifically interested in the Android Software Development Kit (SDK) within Android Studio which provides access to some powerful command line tools to assist in our analysis.</p>
+<p><em>* Tip: Whenever doing an analysis on unfamiliar software, always check to see if an SDK exists and what tools the devolpers are using!</em></p>
+<p>Because I have not spent any time developing Android applications, I had to go through the documentation to find tools for the task. The first command line tool I came across which seemed helpful was the <code>apkanalyzer</code>. This package provides us with the <code>apkanalyzer -h manifest permissions</code> command and allows us to print out the permissions for the APK file. Perfect!</p>
+<pre><code class="language-bash">$ apkanalyzer -h manifest permissions terrorTime.apk
+$ android.permission.INTERNET
+$ android.permission.ACCESS_NETWORK_STATE
+</code></pre>
+<p>We now have the APK permissions, but what do these permissions actually mean? Upon further review of the Android documentation we discover:</p>
+<blockquote>
+<p>ACCESS_NETWORK_STATE: Allows applications to access information about networks.
+INTERNET: Allows applications to open network sockets.</p>
+</blockquote>
+<p>The next part of the task requires us to find certificate information. Luckily, there is another package within the Android SDK called <code>apksigner</code>. This package provides us with the <code>apksigner verify --print-certs</code> command and allows us to print out information about the APK&rsquo;s signing certificates.</p>
+<pre><code class="language-bash">$ apksigner verify --print-certs terrorTime.apk
+$ Signer #1 certificate DN: CN=dev_terrorTime_378361, OU=TSuite
+$ Signer #1 certificate SHA-256 digest: 2bcd16e90870731a7c298348ead84dc8403d16c63509b36fbc26e469fa697961
+$ Signer #1 certificate SHA-1 digest: c4db0963ba6fb32b4c9f3515f71040e68f670685
+$ Signer #1 certificate MD5 digest: 7fe6476d39c9fe7f81d32ccbf651eff2
+</code></pre>
+<p>As we can see, this command prints out the certificate information and provides both the SHA256 of the signing certificate and the common name (CN) of the developer who signed it.</p>
+<p><em>* Note: Do not be discouraged if you were unable to get the Android SDK commands up and running. Admittedly, I ran into issues with with the SDK not playing nice the various versions of Java on my machine. This required some tinkering with my <code>.zshrc</code> to make sure the right JDK version was being used.</em></p>
 
           </div>
 
@@ -620,6 +677,12 @@ The Common Name of the Certificate Signer</p>
     <a href="/ctf/nsacodebreaker2019/001task1/" rel="next">Task 1</a>
   </div>
   
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/ctf/nsacodebreaker2019/003task3/" rel="prev">Task 3</a>
+  </div>
   
 </div>
 
@@ -696,6 +759,22 @@ The Common Name of the Certificate Signer</p>
     
 
     
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
 
     
     
@@ -706,6 +785,25 @@ The Common Name of the Certificate Signer</p>
     
 
     
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
 
     
     
@@ -718,7 +816,6 @@ The Common Name of the Certificate Signer</p>
 
     
     
-
     
     
     
@@ -726,12 +823,12 @@ The Common Name of the Certificate Signer</p>
     
     
     
+      
     
     
     
     
-    
-    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
 
     
 

@@ -281,7 +281,8 @@
 
       <div id="search-box">
         
-        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
         
       </div>
 
@@ -329,7 +330,7 @@
 
     
     
-    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
       <ul class="navbar-nav d-md-inline-flex">
@@ -479,24 +480,11 @@
 
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
       
-
-      
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-palette" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
       </li>
+      
+
       
 
       
@@ -531,6 +519,8 @@
   </button>
 
   
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
 </form>
 
 <nav class="collapse docs-links" id="docs-nav">
@@ -557,6 +547,18 @@
         <a href="/ctf/nsacodebreaker2019/002task2/">Task 2 - Permissions</a>
       </li>
       
+      <li >
+        <a href="/ctf/nsacodebreaker2019/003task3/">Task 3 - Turn of Events</a>
+      </li>
+      
+      <li >
+        <a href="/ctf/nsacodebreaker2019/004task4/">Task 4 - Schemes</a>
+      </li>
+      
+      <li >
+        <a href="/ctf/nsacodebreaker2019/005task5/">Task 5 - Masquerade</a>
+      </li>
+      
     </ul>
     
 
@@ -575,7 +577,11 @@
 
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#it-begins-network-traffic-analysis">It Begins! (Network Traffic Analysis)</a></li>
+    <li><a href="#it-begins-network-traffic-analysis">It Begins! (Network Traffic Analysis)</a>
+      <ul>
+        <li><a href="#flags">Flags</a></li>
+      </ul>
+    </li>
     <li><a href="#solution">Solution</a>
       <ul>
         <li><a href="#commands">Commands</a></li>
@@ -600,12 +606,18 @@
           <div class="article-style">
             <h2 id="it-begins-network-traffic-analysis">It Begins! (Network Traffic Analysis)</h2>
 <p>There are many challenges that we will need to overcome in order to exploit TerrorTime. The first is that we do not yet have a copy of it. We have learned few details through intelligence sources, but the terrorists have managed to keep the app hidden. It is not publicly available on any App Store. Fortunately, as part of a recent military operation, specialized collection gear was forward deployed near the terrorist&rsquo;s area of operations. This resulted in a trove of collected traffic and we need your help to analyze it. Your first task is to find and extract a copy of the TerrorTime Android Package (APK) file from the packet capture. Submit the APK&rsquo;s SHA256 hash. This will help us search other intelligence sources for connections to users. To test out the app, we also need the registration information their leadership uses to register each client. Analyze the packet capture for this data and submit the registration information for 2 clients (in any order).</p>
+<h3 id="flags">Flags</h3>
+<ul>
+<li><input disabled="" type="checkbox"> SHA256 Hash of the Terrotime APK (Hexadecimal/Base16 encoded)</li>
+<li><input disabled="" type="checkbox"> Client IDs and Secrets (one pair of credentials per line, separated by colon)</li>
+</ul>
 <p>
 <a href="https://codebreaker.ltsnet.net/files/task1/terrortime.pcapng?1593563870" target="_blank" rel="noopener">Task Files</a></p>
 <hr>
 <h2 id="solution">Solution</h2>
 <h3 id="commands">Commands</h3>
 <ul>
+<li><code>cat</code> - read and conCATenate files (Linux/OSX)</li>
 <li><code>sha256sum</code> - compute and check SHA256 message digest (Linux/OSX)</li>
 <li><code>File-GetHash</code> - compute and check SHA256 message digest (Windows)</li>
 </ul>
@@ -652,7 +664,8 @@
 
 </figure>
 
-<p>Even though there are over 9000 packets in this dump, we immediately notice that the 4th packet stands out because the &ldquo;terrorTime&rdquo; name is mentioned in its information section. This packet was sent using an application layer protocol called HTTP. Let&rsquo;s use a Wireshark filter to reduce the noise and list only the packets using the http protocol.</p>
+<p>Even though there are over 9000 packets in this dump, we immediately notice that the 4th packet stands out because the &ldquo;terrorTime&rdquo; name is mentioned in its information section. This packet was sent using an application layer protocol called <code>HTTP</code>. Let&rsquo;s use a Wireshark filter to reduce the noise and list only the packets using the HTTP protocol.</p>
+<p><em>* If the HTTP packet had not been so obvious, another technique would have been to checkout the protocol hierarchy of the dump: <code>STATISTICS &gt; PROTOCOL HIERARCHY</code>. This is an excellent tool to use to gain more insight into the dump when looking for clues.</em></p>
 
 
 
@@ -689,8 +702,7 @@
 
 </figure>
 
-<p><em>* If the HTTP packet had not been so obvious, another technique would have been to checkout the protocol hierarchy of the dump: <code>STATISTICS &gt; PROTOCOL HIERARCHY</code>. This is an excellent tool to use to gain more insight into the dump when looking for clues.</em></p>
-<p>9000 packets has now been reduced to 4! There are 2 GET requests with 2 responses which seem to have file objects associated with them. We&rsquo;ll extract and save these files with WireShark: <code>FILE &gt; EXPORT OBJECTS &gt; HTTP</code>.</p>
+<p>~9000 packets have now been reduced to 4! There are 2 GET requests with 2 responses which seem to have file objects associated with them. The first file is the missing APK. The other seems to be a text document. We&rsquo;ll extract and save these files with WireShark: <code>FILE &gt; EXPORT OBJECTS &gt; HTTP &gt; SAVE</code>.</p>
 
 
 
@@ -756,7 +768,7 @@ See design documentation in Master README file for details.
 
 (20190726) Packaged up and ready to ship! $$$$
 </code></pre>
-<p>Luckily, the information we are looking for is revealed within this file with 2 accounts listed along with the client secrets. How convenient for us 😄</p>
+<p>Luckily, the information we are looking for is revealed within this file with 2 accounts listed along with the client secrets. How convenient 😄</p>
 
           </div>
 
@@ -851,6 +863,22 @@ See design documentation in Master README file for details.
     
 
     
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
 
     
     
@@ -861,6 +889,25 @@ See design documentation in Master README file for details.
     
 
     
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
 
     
     
@@ -873,7 +920,6 @@ See design documentation in Master README file for details.
 
     
     
-
     
     
     
@@ -881,12 +927,12 @@ See design documentation in Master README file for details.
     
     
     
+      
     
     
     
     
-    
-    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
 
     
 
