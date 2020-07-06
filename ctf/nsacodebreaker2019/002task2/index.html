@@ -27,7 +27,8 @@
   
     
   
-  <meta name="description" content="Permissions (Mobile APK Analysis) The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:">
+  <meta name="description" content="Permissions Category: Mobile APK Analysis
+The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:">
 
   
   <link rel="alternate" hreflang="en-us" href="https://vengaza.github.io/ctf/nsacodebreaker2019/002task2/">
@@ -42,6 +43,9 @@
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -173,9 +177,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -235,7 +239,8 @@
   <meta property="og:site_name" content="venGaza">
   <meta property="og:url" content="https://vengaza.github.io/ctf/nsacodebreaker2019/002task2/">
   <meta property="og:title" content="Task 2 | venGaza">
-  <meta property="og:description" content="Permissions (Mobile APK Analysis) The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:"><meta property="og:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:description" content="Permissions Category: Mobile APK Analysis
+The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:"><meta property="og:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
@@ -577,7 +582,7 @@
 
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#permissions-mobile-apk-analysis">Permissions (Mobile APK Analysis)</a>
+    <li><a href="#permissions">Permissions</a>
       <ul>
         <li><a href="#flags">Flags</a></li>
       </ul>
@@ -604,7 +609,8 @@
           <h1>Task 2</h1>
 
           <div class="article-style">
-            <h2 id="permissions-mobile-apk-analysis">Permissions (Mobile APK Analysis)</h2>
+            <h2 id="permissions">Permissions</h2>
+<p>Category: Mobile APK Analysis</p>
 <p>The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:</p>
 <h3 id="flags">Flags</h3>
 <ul>
@@ -652,13 +658,18 @@ INTERNET: Allows applications to open network sockets.</p>
 </blockquote>
 <p>The next part of the task requires us to find certificate information. Luckily, there is another package within the Android SDK called <code>apksigner</code>. This package provides us with the <code>apksigner verify --print-certs</code> command and allows us to print out information about the APK&rsquo;s signing certificates.</p>
 <pre><code class="language-bash">$ apksigner verify --print-certs terrorTime.apk
-$ Signer #1 certificate DN: CN=dev_terrorTime_378361, OU=TSuite
-$ Signer #1 certificate SHA-256 digest: 2bcd16e90870731a7c298348ead84dc8403d16c63509b36fbc26e469fa697961
-$ Signer #1 certificate SHA-1 digest: c4db0963ba6fb32b4c9f3515f71040e68f670685
-$ Signer #1 certificate MD5 digest: 7fe6476d39c9fe7f81d32ccbf651eff2
+
+Signer #1 certificate DN: CN=dev_terrorTime_378361, OU=TSuite
+Signer #1 certificate SHA-256 digest: 2bcd16e90870731a7c298348ead84dc8403d16c63509b36fbc26e469fa697961
+Signer #1 certificate SHA-1 digest: c4db0963ba6fb32b4c9f3515f71040e68f670685
+Signer #1 certificate MD5 digest: 7fe6476d39c9fe7f81d32ccbf651eff2
 </code></pre>
 <p>As we can see, this command prints out the certificate information and provides both the SHA256 of the signing certificate and the common name (CN) of the developer who signed it.</p>
-<p><em>* Note: Do not be discouraged if you were unable to get the Android SDK commands up and running. Admittedly, I ran into issues with the SDK not playing nice with the various versions of Java on my machine. This required some tinkering with my <code>.zshrc</code> to make sure the right JDK version was being used.</em></p>
+<div class="alert alert-warning">
+  <div>
+    <em>* Note: Do not be discouraged if you were unable to get the Android SDK commands up and running. Admittedly, I ran into issues with the SDK not playing nice with the various versions of Java on my machine. This required some tinkering with my <code>.zshrc</code> to make sure the right JDK version was being used.</em>
+  </div>
+</div>
 
           </div>
 

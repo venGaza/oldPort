@@ -27,7 +27,8 @@
   
     
   
-  <meta name="description" content="Schemes (Cryptography; Reverse Engineering; Language Analysis) While analyzing the TerrorTime SQLite database found on the terrorist’s device, analysts discovered that the database has cached credentials but requires a pin to log in.">
+  <meta name="description" content="Schemes Category: Cryptography; Reverse Engineering; Language Analysis
+While analyzing the TerrorTime SQLite database found on the terrorist’s device, analysts discovered that the database has cached credentials but requires a pin to log in.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://vengaza.github.io/ctf/nsacodebreaker2019/004task4/">
@@ -42,6 +43,9 @@
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -173,9 +177,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -235,7 +239,8 @@
   <meta property="og:site_name" content="venGaza">
   <meta property="og:url" content="https://vengaza.github.io/ctf/nsacodebreaker2019/004task4/">
   <meta property="og:title" content="Task 4 | venGaza">
-  <meta property="og:description" content="Schemes (Cryptography; Reverse Engineering; Language Analysis) While analyzing the TerrorTime SQLite database found on the terrorist’s device, analysts discovered that the database has cached credentials but requires a pin to log in."><meta property="og:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:description" content="Schemes Category: Cryptography; Reverse Engineering; Language Analysis
+While analyzing the TerrorTime SQLite database found on the terrorist’s device, analysts discovered that the database has cached credentials but requires a pin to log in."><meta property="og:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
@@ -577,7 +582,7 @@
 
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#schemes-cryptography-reverse-engineering-language-analysis">Schemes (Cryptography; Reverse Engineering; Language Analysis)</a>
+    <li><a href="#schemes">Schemes</a>
       <ul>
         <li><a href="#flags">Flags</a></li>
       </ul>
@@ -604,7 +609,8 @@
           <h1>Task 4</h1>
 
           <div class="article-style">
-            <h2 id="schemes-cryptography-reverse-engineering-language-analysis">Schemes (Cryptography; Reverse Engineering; Language Analysis)</h2>
+            <h2 id="schemes">Schemes</h2>
+<p>Category: Cryptography; Reverse Engineering; Language Analysis</p>
 <p>While analyzing the TerrorTime SQLite database found on the terrorist’s device, analysts discovered that the database has cached credentials but requires a pin to log in. If we can determine how the credentials are protected and find a way to recover the pin, we should be able to masquerade as the arrested terrorist. Perform reverse engineering to identify how the terrorist’s credentials are protected and submit the terrorist&rsquo;s Client ID and Client Secret. Once you have uncovered their credentials, masquerade (i.e., login) as him using the TerrorTime app. Review their chat history and assess additional information regarding their organization. Though the app encrypts messages back and forth, the terrorists have previously spoken in some form of code to ensure their plans were protected. To prove completion of this task, you will need to analyze the terrorist&rsquo;s conversation history in order to uncover/deduce the following information:</p>
 <h3 id="flags">Flags</h3>
 <ul>
@@ -614,18 +620,120 @@
 <h2 id="solution">Solution</h2>
 <h3 id="commands">Commands</h3>
 <ul>
-<li><code>apkanlyzer -h manifest permissions &lt;FILE.APK&gt;</code> - Print application permissions</li>
-<li><code>File-GetHash</code> - compute and check SHA256 message digest (Windows)</li>
+<li><code>jadx -d out &lt;FILE.APK&gt;</code> - Converts DEX -&gt; JAR -&gt; Java (Source)</li>
 </ul>
 <h3 id="tools">Tools</h3>
 <ul>
 <li>
 <a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio</a> - Google IDE for Android</li>
 <li>
+<a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">JADX</a> - Dex to Java decompiler</li>
+<li>
 <a href="https://ghidra-sre.org/" target="_blank" rel="noopener">Ghidra</a> - NSA&rsquo;s software reverse engineering suite (Optional)</li>
 </ul>
 <h3 id="analysis">Analysis</h3>
-<p>Coming soon</p>
+<p>Let the fun begin! The goal of this challenge is to hack our way into the terrorist&rsquo;s account on the TerrorTime application to review chat information for pertinent information. Before we start, we need to set up an emulation environment to run the TerrorTime APK. I recommend using the Android Virtual Device (AVD) manager within <mark>Android Studio</mark>. AVD setup documentation can be found at the following link:</p>
+<blockquote>
+<p><a href="https://developer.android.com/studio/run/emulator">https://developer.android.com/studio/run/emulator</a></p>
+</blockquote>
+<div class="alert alert-note">
+  <div>
+    <em>* When it comes to choosing an Android version, I chose to use Android 9.0 Pie (SDK 28) as per the setup instructions. However, an SDK version between 26 and 27 can also be used based on information in the manifest file.</em>
+  </div>
+</div>
+<p>Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application and run it.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-starting-the-terrortime-apk-on-the-avd-emulator">
+
+
+  <a data-fancybox="" href="/img/nsa2019/004task4/emulation.gif" data-caption="Starting the TerrorTime APK on the AVD emulator">
+
+
+  <img src="/img/nsa2019/004task4/emulation.gif" alt="" width="30%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Starting the TerrorTime APK on the AVD emulator
+  </figcaption>
+
+
+</figure>
+
+<p>When we start the application, we are presented with a login screen and asked to enter the client ID along with a pin. We have a client ID from the Task 3, but the potential pin(the blob data within checkpin) is encoded using an unknown format. We do know that it is 32 bytes (256 bits) in size based on the information DB Browser provided. I ended up fuzzing the login to see how the application would react, and it reveals the pin must be 6 digits in length. This is another vital clue because it means the pin is susceptible to being bruteforced.</p>
+<p>$$ \text{10 choices for each pin digit with replacement} = 0-9$$
+$$  10 \times 10 \times 10 \times 10 \times 10 \times 10 = 10^{6} $$
+$$ 1000000 \text{ combinations} $$</p>
+<p>If we could determine how the pin was being encoded, we could create a script to generate the encoding of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <mark>JADX</mark>, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
+<pre><code class="language-bash"># Outputs Java source code to out folder
+$ jadx -d out terrortime.apk 
+</code></pre>
+<p>This command outputs a folder named <code>out</code> which contains the decompiled source code from the <code>APK</code>. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the <code>OUT &gt; SOURCES &gt; COM &gt; BADGUY &gt; TERRORTIME</code> folder. This folder contains the various classes that the APK uses. After a quick scan of the folder names, I decided to look at the <code>LoginActivity.java</code> file to see if I could understand how the login page was verifying the pin input.</p>
+<pre><code class="language-java">//LoginActivity.java
+if (this.success) {
+    // Let's check the client class and learn more about this function
+    this.client.generateSymmetricKey(); &lt;---- &quot;Possible pin encoding or encryption&quot;
+    this.client.validateAccessToken(activity.getApplicationContext());
+    Log.d(&quot;LOGINACTIVITY&quot;, &quot;Token request successful. &quot;);
+}
+</code></pre>
+<pre><code class="language-java">//Client.java
+public final SecretKey generateSymmetricKey() throws Exception {
+  String ePin = this.encryptPin.getValue();
+  if (!this.encryptPin.isDefaultValue()) {
+      byte[] salt = this.checkPin.getValue();
+      byte[] hash = null;
+      
+      try {
+          // Pin input is being converted to byte array and hashed with SHA256
+          hash = MessageDigest.getInstance(&quot;SHA-256&quot;).digest(ePin.getBytes(StringUtils.UTF8));
+          if (salt == null) {
+              salt = hash;
+              // Side Note: The pin hash appears to be used as a salt for an encryption
+              this.checkPin.setValue(salt);
+          }
+      }
+  }
+}
+</code></pre>
+<p>A quick Google search reveals the Java <code>digest</code> method from the <code>MessageDigest</code> class returns an array of 32 bytes for the resulting SHA256 hash. This matches the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&rsquo;s write a quick script to test this theory:</p>
+<pre><code class="language-python">from hashlib import sha256
+
+targetHash = &quot;925e82c7069676d7d6e2ae4a114c4b327f3022f5e025189d07baf7c935725ce8&quot;
+pin = -1
+
+for i in range(1000000):
+    candidate = str(i).zfill(6)
+    candidateHash= sha256(candidate.encode(&quot;utf-8&quot;)).hexdigest()
+    if candidateHash == targetHash:
+        pin = candidate
+        break
+
+print(&quot;Pin not found&quot;) if pin == -1 else print(&quot;Pin: {}&quot;.format(pin))
+</code></pre>
+<p>We now have the client ID and pin. Let&rsquo;s try to login into the application once again.</p>
+<blockquote>
+<p>Client ID: <a href="mailto:zoe--vhost-3823@terrortime.app">zoe--vhost-3823@terrortime.app</a> <br>
+Client Pin: 021086</p>
+</blockquote>
 
           </div>
 
