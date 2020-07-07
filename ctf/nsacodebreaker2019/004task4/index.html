@@ -621,6 +621,7 @@ While analyzing the TerrorTime SQLite database found on the terrorist’s device
 <h3 id="commands">Commands</h3>
 <ul>
 <li><code>jadx -d out &lt;FILE.APK&gt;</code> - Converts DEX -&gt; JAR -&gt; Java (Source)</li>
+<li><code>date -j -f &quot;%Y:%m:%d %H:%M:%S&quot; &lt;'YYYY:MM:DD HH:MM:SS'&gt; +%s</code> - Print out unix timestamp for date</li>
 </ul>
 <h3 id="tools">Tools</h3>
 <ul>
@@ -638,10 +639,10 @@ While analyzing the TerrorTime SQLite database found on the terrorist’s device
 </blockquote>
 <div class="alert alert-note">
   <div>
-    <em>* When it comes to choosing an Android version, I chose to use Android 9.0 Pie (SDK 28) as per the setup instructions. However, an SDK version between 26 and 27 can also be used based on information in the manifest file.</em>
+    <em>* When it comes to choosing an Android version, I chose to use Android 9.0 Pie (SDK 28) as per the challenge setup instructions. However, an SDK version between 26 and 27 can also be used based on information in the manifest file.</em>
   </div>
 </div>
-<p>Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application and run it.</p>
+<p>Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application. Before running the application, make sure to use the File Device Explorer within Android Studio to replace the emulator&rsquo;s TerrorTime <code>clientDB.db</code> file with the one from the previous task. The file can be located at <code>DATA &gt; DATA &gt; COM.BADGUY.TERRORTIME &gt; DATABASES &gt; CLIENTDB.DB</code>.</p>
 
 
 
@@ -682,19 +683,19 @@ While analyzing the TerrorTime SQLite database found on the terrorist’s device
 <p>$$ \text{10 choices for each pin digit with replacement} = 0-9$$
 $$  10 \times 10 \times 10 \times 10 \times 10 \times 10 = 10^{6} $$
 $$ 1000000 \text{ combinations} $$</p>
-<p>If we could determine how the pin was being encoded, we could create a script to generate the encoding of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <mark>JADX</mark>, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
+<p>If we could determine how the pin was being transformed (hashed) to be stored in the database, we could create a script to generate the <code>hash</code> of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <mark>JADX</mark>, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
 <pre><code class="language-bash"># Outputs Java source code to out folder
 $ jadx -d out terrortime.apk 
 </code></pre>
-<p>This command outputs a folder named <code>out</code> which contains the decompiled source code from the <code>APK</code>. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the <code>OUT &gt; SOURCES &gt; COM &gt; BADGUY &gt; TERRORTIME</code> folder. This folder contains the various classes that the APK uses. After a quick scan of the folder names, I decided to look at the <code>LoginActivity.java</code> file to see if I could understand how the login page was verifying the pin input.</p>
+<p>This command outputs a folder named <code>out</code> which contains the decompiled source code from the <code>APK</code>. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the <code>OUT &gt; SOURCES &gt; COM &gt; BADGUY &gt; TERRORTIME</code> folder. This folder contains the various classes that the APK uses. After a quick scan of the file names, I decided to look at the <code>LoginActivity.java</code> file to see if I could understand how the login page was verifying the pin input.</p>
 <pre><code class="language-java">//LoginActivity.java
 if (this.success) {
-    // Let's check the client class and learn more about this function
     this.client.generateSymmetricKey(); &lt;---- &quot;Possible pin encoding or encryption&quot;
     this.client.validateAccessToken(activity.getApplicationContext());
     Log.d(&quot;LOGINACTIVITY&quot;, &quot;Token request successful. &quot;);
 }
 </code></pre>
+<p>Let&rsquo;s check the <code>Client.java</code> class and learn more about this function.</p>
 <pre><code class="language-java">//Client.java
 public final SecretKey generateSymmetricKey() throws Exception {
   String ePin = this.encryptPin.getValue();
@@ -703,7 +704,7 @@ public final SecretKey generateSymmetricKey() throws Exception {
       byte[] hash = null;
       
       try {
-          // Pin input is being converted to byte array and hashed with SHA256
+          // Pin is UTF8 encoded, converted to byte array, and hashed with SHA256
           hash = MessageDigest.getInstance(&quot;SHA-256&quot;).digest(ePin.getBytes(StringUtils.UTF8));
           if (salt == null) {
               salt = hash;
@@ -714,12 +715,16 @@ public final SecretKey generateSymmetricKey() throws Exception {
   }
 }
 </code></pre>
-<p>A quick Google search reveals the Java <code>digest</code> method from the <code>MessageDigest</code> class returns an array of 32 bytes for the resulting SHA256 hash. This matches the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&rsquo;s write a quick script to test this theory:</p>
-<pre><code class="language-python">from hashlib import sha256
+<p>A quick Google search reveals the Java <code>digest</code> method from the <code>MessageDigest</code> class returns an array of 32 bytes for the resulting SHA256 hash. This matches the format of the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&rsquo;s write a quick script to test this theory:</p>
+<pre><code class="language-python">#! python3
+from hashlib import sha256
 
 targetHash = &quot;925e82c7069676d7d6e2ae4a114c4b327f3022f5e025189d07baf7c935725ce8&quot;
 pin = -1
 
+# Brute force each pin combo from 000000 - 999999
+# Time = O(N)
+# Space = O(1)
 for i in range(1000000):
     candidate = str(i).zfill(6)
     candidateHash= sha256(candidate.encode(&quot;utf-8&quot;)).hexdigest()
@@ -734,6 +739,93 @@ print(&quot;Pin not found&quot;) if pin == -1 else print(&quot;Pin: {}&quot;.for
 <p>Client ID: <a href="mailto:zoe--vhost-3823@terrortime.app">zoe--vhost-3823@terrortime.app</a> <br>
 Client Pin: 021086</p>
 </blockquote>
+<p>Success! We now have access to Zoe&rsquo;s TerrorTime account and discover 2 of her contacts, Joseph and Emanuel. Each contact has a chat history log stored and it is reasonable to assume Emanuel is the person of authority in the conversation compared to Joseph.</p>
+<p>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-chat-history-with-emanuel">
+
+
+  <a data-fancybox="" href="/img/nsa2019/004task4/emanuelChat.png" data-caption="Chat history with Emanuel">
+
+
+  <img src="/img/nsa2019/004task4/emanuelChat.png" alt="" width="30%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Chat history with Emanuel
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-chat-history-with-joseph">
+
+
+  <a data-fancybox="" href="/img/nsa2019/004task4/josephChat.png" data-caption="Chat history with Joseph">
+
+
+  <img src="/img/nsa2019/004task4/josephChat.png" alt="" width="30%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Chat history with Joseph
+  </figcaption>
+
+
+</figure>
+</p>
+<blockquote>
+<p>Cell Leader Username: <a href="mailto:emanuel--vhost-3823@terrortime.app">emanuel--vhost-3823@terrortime.app</a></p>
+</blockquote>
+<p>The last piece of this task is finding the date-time group of the proposed attack. The chat messages indicate they are planning to meet up on December 28, 2019 @ 2012 (delivering wine to the wedding 4 days before New Year&rsquo;s Day). However, we need the Unix timestamp of the date. We&rsquo;ll use the <code>date</code> command in MacOS to calculate the value:</p>
+<pre><code class="language-bash"># Output the Unix timestamp for December 28, 2019 @ 20:12:00
+$ date -j -f &quot;%Y:%m:%d %H:%M:%S&quot; '2019:12:28 20:12:00' +%s
+1577585520
+</code></pre>
+<div class="alert alert-note">
+  <div>
+    Did You Know?<br>
+The Year 2038 problem (also called Y2038 or Y2k38 or Unix Y2K) relates to representing time in many digital systems as the number of seconds passed since 00:00:00 UTC on 1 January 1970 and storing it as a signed 32-bit integer. Such implementations cannot encode times after 03:14:07 UTC on 19 January 2038.
+  </div>
+</div>
 
           </div>
 

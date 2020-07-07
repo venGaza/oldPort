@@ -661,6 +661,7 @@ chat.terrortime.app.	3600	IN	A	54.91.5.130 &amp;lt;--- XMPP IP
 &lt;h3 id=&#34;commands&#34;&gt;Commands&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;jadx -d out &amp;lt;FILE.APK&amp;gt;&lt;/code&gt; - Converts DEX -&amp;gt; JAR -&amp;gt; Java (Source)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;date -j -f &amp;quot;%Y:%m:%d %H:%M:%S&amp;quot; &amp;lt;&#39;YYYY:MM:DD HH:MM:SS&#39;&amp;gt; +%s&lt;/code&gt; - Print out unix timestamp for date&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
 &lt;ul&gt;
@@ -678,10 +679,10 @@ chat.terrortime.app.	3600	IN	A	54.91.5.130 &amp;lt;--- XMPP IP
 &lt;/blockquote&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-    &lt;em&gt;* When it comes to choosing an Android version, I chose to use Android 9.0 Pie (SDK 28) as per the setup instructions. However, an SDK version between 26 and 27 can also be used based on information in the manifest file.&lt;/em&gt;
+    &lt;em&gt;* When it comes to choosing an Android version, I chose to use Android 9.0 Pie (SDK 28) as per the challenge setup instructions. However, an SDK version between 26 and 27 can also be used based on information in the manifest file.&lt;/em&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application and run it.&lt;/p&gt;
+&lt;p&gt;Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application. Before running the application, make sure to use the File Device Explorer within Android Studio to replace the emulator&amp;rsquo;s TerrorTime &lt;code&gt;clientDB.db&lt;/code&gt; file with the one from the previous task. The file can be located at &lt;code&gt;DATA &amp;gt; DATA &amp;gt; COM.BADGUY.TERRORTIME &amp;gt; DATABASES &amp;gt; CLIENTDB.DB&lt;/code&gt;.&lt;/p&gt;
 
 
 
@@ -722,19 +723,19 @@ chat.terrortime.app.	3600	IN	A	54.91.5.130 &amp;lt;--- XMPP IP
 &lt;p&gt;$$ \text{10 choices for each pin digit with replacement} = 0-9$$
 $$  10 \times 10 \times 10 \times 10 \times 10 \times 10 = 10^{6} $$
 $$ 1000000 \text{ combinations} $$&lt;/p&gt;
-&lt;p&gt;If we could determine how the pin was being encoded, we could create a script to generate the encoding of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&amp;rsquo;s look deeper into the APK using &lt;mark&gt;JADX&lt;/mark&gt;, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.&lt;/p&gt;
+&lt;p&gt;If we could determine how the pin was being transformed (hashed) to be stored in the database, we could create a script to generate the &lt;code&gt;hash&lt;/code&gt; of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&amp;rsquo;s look deeper into the APK using &lt;mark&gt;JADX&lt;/mark&gt;, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Outputs Java source code to out folder
 $ jadx -d out terrortime.apk 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This command outputs a folder named &lt;code&gt;out&lt;/code&gt; which contains the decompiled source code from the &lt;code&gt;APK&lt;/code&gt;. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the &lt;code&gt;OUT &amp;gt; SOURCES &amp;gt; COM &amp;gt; BADGUY &amp;gt; TERRORTIME&lt;/code&gt; folder. This folder contains the various classes that the APK uses. After a quick scan of the folder names, I decided to look at the &lt;code&gt;LoginActivity.java&lt;/code&gt; file to see if I could understand how the login page was verifying the pin input.&lt;/p&gt;
+&lt;p&gt;This command outputs a folder named &lt;code&gt;out&lt;/code&gt; which contains the decompiled source code from the &lt;code&gt;APK&lt;/code&gt;. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the &lt;code&gt;OUT &amp;gt; SOURCES &amp;gt; COM &amp;gt; BADGUY &amp;gt; TERRORTIME&lt;/code&gt; folder. This folder contains the various classes that the APK uses. After a quick scan of the file names, I decided to look at the &lt;code&gt;LoginActivity.java&lt;/code&gt; file to see if I could understand how the login page was verifying the pin input.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//LoginActivity.java
 if (this.success) {
-    // Let&#39;s check the client class and learn more about this function
     this.client.generateSymmetricKey(); &amp;lt;---- &amp;quot;Possible pin encoding or encryption&amp;quot;
     this.client.validateAccessToken(activity.getApplicationContext());
     Log.d(&amp;quot;LOGINACTIVITY&amp;quot;, &amp;quot;Token request successful. &amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&amp;rsquo;s check the &lt;code&gt;Client.java&lt;/code&gt; class and learn more about this function.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//Client.java
 public final SecretKey generateSymmetricKey() throws Exception {
   String ePin = this.encryptPin.getValue();
@@ -743,7 +744,7 @@ public final SecretKey generateSymmetricKey() throws Exception {
       byte[] hash = null;
       
       try {
-          // Pin input is being converted to byte array and hashed with SHA256
+          // Pin is UTF8 encoded, converted to byte array, and hashed with SHA256
           hash = MessageDigest.getInstance(&amp;quot;SHA-256&amp;quot;).digest(ePin.getBytes(StringUtils.UTF8));
           if (salt == null) {
               salt = hash;
@@ -754,12 +755,16 @@ public final SecretKey generateSymmetricKey() throws Exception {
   }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A quick Google search reveals the Java &lt;code&gt;digest&lt;/code&gt; method from the &lt;code&gt;MessageDigest&lt;/code&gt; class returns an array of 32 bytes for the resulting SHA256 hash. This matches the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&amp;rsquo;s write a quick script to test this theory:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from hashlib import sha256
+&lt;p&gt;A quick Google search reveals the Java &lt;code&gt;digest&lt;/code&gt; method from the &lt;code&gt;MessageDigest&lt;/code&gt; class returns an array of 32 bytes for the resulting SHA256 hash. This matches the format of the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&amp;rsquo;s write a quick script to test this theory:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#! python3
+from hashlib import sha256
 
 targetHash = &amp;quot;925e82c7069676d7d6e2ae4a114c4b327f3022f5e025189d07baf7c935725ce8&amp;quot;
 pin = -1
 
+# Brute force each pin combo from 000000 - 999999
+# Time = O(N)
+# Space = O(1)
 for i in range(1000000):
     candidate = str(i).zfill(6)
     candidateHash= sha256(candidate.encode(&amp;quot;utf-8&amp;quot;)).hexdigest()
@@ -774,6 +779,93 @@ print(&amp;quot;Pin not found&amp;quot;) if pin == -1 else print(&amp;quot;Pin: 
 &lt;p&gt;Client ID: &lt;a href=&#34;mailto:zoe--vhost-3823@terrortime.app&#34;&gt;zoe--vhost-3823@terrortime.app&lt;/a&gt; &lt;br&gt;
 Client Pin: 021086&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Success! We now have access to Zoe&amp;rsquo;s TerrorTime account and discover 2 of her contacts, Joseph and Emanuel. Each contact has a chat history log stored and it is reasonable to assume Emanuel is the person of authority in the conversation compared to Joseph.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-chat-history-with-emanuel&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/nsa2019/004task4/emanuelChat.png&#34; data-caption=&#34;Chat history with Emanuel&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/nsa2019/004task4/emanuelChat.png&#34; alt=&#34;&#34; width=&#34;30%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Chat history with Emanuel
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-chat-history-with-joseph&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vengaza.github.io/img/nsa2019/004task4/josephChat.png&#34; data-caption=&#34;Chat history with Joseph&#34;&gt;
+
+
+  &lt;img src=&#34;https://vengaza.github.io/img/nsa2019/004task4/josephChat.png&#34; alt=&#34;&#34; width=&#34;30%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Chat history with Joseph
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cell Leader Username: &lt;a href=&#34;mailto:emanuel--vhost-3823@terrortime.app&#34;&gt;emanuel--vhost-3823@terrortime.app&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The last piece of this task is finding the date-time group of the proposed attack. The chat messages indicate they are planning to meet up on December 28, 2019 @ 2012 (delivering wine to the wedding 4 days before New Year&amp;rsquo;s Day). However, we need the Unix timestamp of the date. We&amp;rsquo;ll use the &lt;code&gt;date&lt;/code&gt; command in MacOS to calculate the value:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Output the Unix timestamp for December 28, 2019 @ 20:12:00
+$ date -j -f &amp;quot;%Y:%m:%d %H:%M:%S&amp;quot; &#39;2019:12:28 20:12:00&#39; +%s
+1577585520
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Did You Know?&lt;br&gt;
+The Year 2038 problem (also called Y2038 or Y2k38 or Unix Y2K) relates to representing time in many digital systems as the number of seconds passed since 00:00:00 UTC on 1 January 1970 and storing it as a signed 32-bit integer. Such implementations cannot encode times after 03:14:07 UTC on 19 January 2038.
+  &lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -845,6 +937,15 @@ Client Pin: 021086&lt;/p&gt;
       <link>https://vengaza.github.io/talk/ghidra/</link>
       <pubDate>Sun, 21 Apr 2019 17:35:45 -0500</pubDate>
       <guid>https://vengaza.github.io/talk/ghidra/</guid>
+      <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PX4</title>
+      <link>https://vengaza.github.io/talk/untitled-folder/</link>
+      <pubDate>Sun, 21 Apr 2019 17:35:45 -0500</pubDate>
+      <guid>https://vengaza.github.io/talk/untitled-folder/</guid>
       <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
 </description>
     </item>
