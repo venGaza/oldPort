@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vengaza</title>
-    <link>http://vengaza.github.io/</link>
+    <link>https://vengaza.github.io/</link>
     <description>Recent content on Vengaza</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Jul 2020 12:14:34 +0600</lastBuildDate>
     
-	<atom:link href="http://vengaza.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vengaza.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AI Notebooks</title>
-      <link>http://vengaza.github.io/portfolio/project-0/</link>
+      <link>https://vengaza.github.io/portfolio/project-0/</link>
       <pubDate>Mon, 13 Jul 2020 12:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/portfolio/project-0/</guid>
+      <guid>https://vengaza.github.io/portfolio/project-0/</guid>
       <description>Project Overview Coming Soon
 Project Details </description>
     </item>
     
     <item>
       <title>NSA CodeBreaker 2019: Task 1</title>
-      <link>http://vengaza.github.io/blog/post-1/</link>
+      <link>https://vengaza.github.io/blog/post-1/</link>
       <pubDate>Wed, 13 May 2020 13:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/blog/post-1/</guid>
+      <guid>https://vengaza.github.io/blog/post-1/</guid>
       <description>It Begins! Category: Network Traffic Analysis
 There are many challenges that we will need to overcome in order to exploit TerrorTime.</description>
     </item>
     
     <item>
       <title>Treasure Hunt</title>
-      <link>http://vengaza.github.io/portfolio/project-1/</link>
+      <link>https://vengaza.github.io/portfolio/project-1/</link>
       <pubDate>Wed, 13 May 2020 12:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/portfolio/project-1/</guid>
+      <guid>https://vengaza.github.io/portfolio/project-1/</guid>
       <description>Project Overview This was my first foray into the world of UI/UX design and I have to say it was very rewarding.</description>
     </item>
     
     <item>
       <title>NSA CodeBreaker 2019: Task 2</title>
-      <link>http://vengaza.github.io/blog/post-2/</link>
+      <link>https://vengaza.github.io/blog/post-2/</link>
       <pubDate>Wed, 13 May 2020 11:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/blog/post-2/</guid>
+      <guid>https://vengaza.github.io/blog/post-2/</guid>
       <description>It Begins! Category: Network Traffic Analysis
 There are many challenges that we will need to overcome in order to exploit TerrorTime.</description>
     </item>
     
     <item>
       <title>NSA CodeBreaker 2019: Task 3</title>
-      <link>http://vengaza.github.io/blog/post-3/</link>
+      <link>https://vengaza.github.io/blog/post-3/</link>
       <pubDate>Wed, 13 May 2020 10:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/blog/post-3/</guid>
+      <guid>https://vengaza.github.io/blog/post-3/</guid>
       <description>Turn of Events Category: Database Analysis
 Analysts found TerrorTime installed on a device at a port of entry.</description>
     </item>
     
     <item>
       <title>NSA CodeBreaker 2019: Task 4</title>
-      <link>http://vengaza.github.io/blog/post-4/</link>
+      <link>https://vengaza.github.io/blog/post-4/</link>
       <pubDate>Wed, 13 May 2020 09:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/blog/post-4/</guid>
+      <guid>https://vengaza.github.io/blog/post-4/</guid>
       <description>Schemes Category: Reverse Engineering;
 Analysts discovered that the database has cached credentials but requires a pin to log in.</description>
     </item>
     
     <item>
       <title>Ukdah</title>
-      <link>http://vengaza.github.io/portfolio/project-2/</link>
+      <link>https://vengaza.github.io/portfolio/project-2/</link>
       <pubDate>Fri, 12 Apr 2019 12:14:34 +0600</pubDate>
       
-      <guid>http://vengaza.github.io/portfolio/project-2/</guid>
+      <guid>https://vengaza.github.io/portfolio/project-2/</guid>
       <description>Project Overview Awards play a critical role in recognizing employee accomplishments and boosting morale within an organization but most systems are out of date or too reliant upon an extensive human resources staff.</description>
     </item>
     
