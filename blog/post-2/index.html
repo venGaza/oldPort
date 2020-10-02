@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>NSA CodeBreaker 2019: Task 2</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This is meta description.">
+  <meta name="author" content="Dustin Jones">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <style>
+    :root{
+      --primary-color:#2d195e;
+    }
+  </style>
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/themify-icons/themify-icons.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/css/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="http://vengaza.github.io/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://vengaza.github.io/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://vengaza.github.io/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="http://vengaza.github.io/images/favicons/site.webmanifest">
+
+  
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+  <img src="/images/preloader.gif " alt="preloader">
+  
+</div>
+<!-- preloader end -->
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="http://vengaza.github.io">
+      
+      <h3 class="text-white font-tertiary">Vengaza</h3>
+      
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://vengaza.github.io"> Home </a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/about">About</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/portfolio">Portfolio</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/blog">Blog</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/contact">Contact</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  
+<section class="page-title bg-primary position-relative overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="text-white font-tertiary">NSA CodeBreaker 2019: Task 2</h1>
+      </div>
+    </div>
+  </div>
+  
+  <img src="/images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
+  <img src="/images/illustrations/leaf-pink-round.svg" alt="illustrations" class="bg-shape-2">
+  <img src="/images/illustrations/dots-cyan.svg" alt="illustrations" class="bg-shape-3">
+  <img src="/images/illustrations/leaf-orange.svg" alt="illustrations" class="bg-shape-4">
+  <img src="/images/illustrations/leaf-yellow.svg" alt="illustrations" class="bg-shape-5">
+  <img src="/images/illustrations/dots-group-cyan.svg" alt="illustrations" class="bg-shape-6">
+  <img src="/images/illustrations/leaf-cyan-lg.svg" alt="illustrations" class="bg-shape-7">
+</section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 text-center mb-4">
+          <img src="http://vengaza.github.io/images/blog/nsa.png" alt="NSA CodeBreaker 2019: Task 2" class="img-fluid rounded mb-4">
+          <p class="font-secondary">Published on May 13, 2020 by <span class="text-primary">Dustin Jones</span></p>
+        </div>
+        <div class="col-lg-9">
+          <div class="content">
+            <h2 id="it-begins">It Begins!</h2>
+<p>Category: Network Traffic Analysis</p>
+<p>There are many challenges that we will need to overcome in order to exploit TerrorTime. The first is that we do not yet have a copy of it. We have learned few details through intelligence sources, but the terrorists have managed to keep the app hidden. It is not publicly available on any App Store. Fortunately, as part of a recent military operation, specialized collection gear was forward deployed near the terrorist&rsquo;s area of operations. This resulted in a trove of collected traffic and we need your help to analyze it. Your first task is to find and extract a copy of the TerrorTime Android Package (APK) file from the packet capture. Submit the APK&rsquo;s SHA256 hash. This will help us search other intelligence sources for connections to users. To test out the app, we also need the registration information their leadership uses to register each client. Analyze the packet capture for this data and submit the registration information for 2 clients (in any order).</p>
+<h3 id="flags">Flags</h3>
+<ul>
+<li><input disabled="" type="checkbox"> SHA256 Hash of the Terrotime APK (Hexadecimal/Base16 encoded)</li>
+<li><input disabled="" type="checkbox"> Client IDs and Secrets (one pair of credentials per line, separated by colon)</li>
+</ul>
+<p><a href="https://codebreaker.ltsnet.net/files/task1/terrortime.pcapng?1593563870">Task Files</a></p>
+<hr>
+<h2 id="permissions">Permissions</h2>
+<p>Category: Mobile APK Analysis</p>
+<p>The TerrorTime APK file contains metadata that describes various security properties of the application that we want to know. Since we now have a copy of the APK thanks to the military operation described in Task 1, we need you to identify and submit the following:</p>
+<h3 id="flags-1">Flags</h3>
+<ul>
+<li><input disabled="" type="checkbox"> App Permissions (Capital letters and underscores, one per line)</li>
+<li><input disabled="" type="checkbox"> SHA256 of Signing Certificate (Hexadecimal/Base16 encoded)</li>
+<li><input disabled="" type="checkbox"> Certificate Signer Name (ASCII)</li>
+</ul>
+<p>Please note that completion of task 1 is required to complete this task.</p>
+<p><a href="https://codebreaker.ltsnet.net/files/task2/terrortime.pcapng?1593563870">Task Files</a></p>
+<h2 id="solution">Solution</h2>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>apkanalyzer -h manifest permissions</code> - Print application permissions</li>
+<li><code>apksigner verify --print-certs</code> - Print out APK certificate information</li>
+<li><code>File-GetHash</code> - compute and check SHA256 message digest (Windows)</li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><a href="https://developer.android.com/studio">Android Studio</a> - Google IDE for Android</li>
+<li><a href="https://ghidra-sre.org/">Ghidra</a> - NSA&rsquo;s software reverse engineering suite (Optional)</li>
+</ul>
+<h3 id="analysis">Analysis</h3>
+<p>In this challenge, we&rsquo;ll continue analyzing the Terrortime APK we recovered in the previous challenge. We first need to figure out the application&rsquo;s permissions. It is first important to understand what an APK file actually is.</p>
+<blockquote>
+<p>Android Package (APK)[1] is the package file format used by the Android, and a number of other Android-based operating systems for distribution and installation of mobile apps, mobile games and middleware.</p>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://en.wikipedia.org/wiki/Android_application_package">https://en.wikipedia.org/wiki/Android_application_package</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p>It is also important to realize that an APK is a compiled file meaning the source code (human readable) has been transformed into machine code (computer executable). This makes it difficult to do any meaningful analysis without first figuring out a way to decompile the file to make it human readable once again. A great tool for this was released by the NSA, <!-- raw HTML omitted -->Ghidra<!-- raw HTML omitted -->. There are also other tools such JADX and APKtool. I will not be making use of these tools for this challenge, but they are important tools to be aware of when the need to reverse arises.</p>
+<p><em>* Tip: APK files can also be unzipped by changing the file extension from APK to ZIP.</em></p>
+<p>If we look at the objectives for this task, we should take notice that the information being requested
+is just the application metadata (attributes) of the file itself which means there should be no need to decompile. We just need to figure out a way to view the metadata since this capability is not natively built into our operating system. Enter <!-- raw HTML omitted -->Android Studio<!-- raw HTML omitted -->, Google&rsquo;s official Android integrated development environment (IDE) which comes with a variety of tools to make the development of Android applications easier. We are specifically interested in the Android Software Development Kit (SDK) within Android Studio which provides access to some powerful command line tools to assist in our analysis.</p>
+<p><em>* Tip: Whenever doing an analysis on unfamiliar software, always check to see if an SDK exists and what tools the developers are using!</em></p>
+<p>Because I have not spent any time developing Android applications, I had to go through the documentation to find tools for the task. The first command line tool I came across which seemed helpful was the <code>apkanalyzer</code>. This package provides us with the <code>apkanalyzer -h manifest permissions</code> command and allows us to print out the permissions for the APK file. Perfect!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apkanalyzer -h manifest permissions terrorTime.apk
+$ android.permission.INTERNET
+$ android.permission.ACCESS_NETWORK_STATE
+</code></pre></div><p>We now have the APK permissions, but what do these permissions actually mean? Upon further review of the Android documentation we discover:</p>
+<blockquote>
+<p>ACCESS_NETWORK_STATE: Allows applications to access information about networks.<!-- raw HTML omitted -->
+INTERNET: Allows applications to open network sockets.</p>
+</blockquote>
+<p>The next part of the task requires us to find certificate information. Luckily, there is another package within the Android SDK called <code>apksigner</code>. This package provides us with the <code>apksigner verify --print-certs</code> command and allows us to print out information about the APK&rsquo;s signing certificates.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apksigner verify --print-certs terrorTime.apk
+
+Signer <span style="color:#75715e">#1 certificate DN: CN=dev_terrorTime_378361, OU=TSuite</span>
+Signer <span style="color:#75715e">#1 certificate SHA-256 digest: 2bcd16e90870731a7c298348ead84dc8403d16c63509b36fbc26e469fa697961</span>
+Signer <span style="color:#75715e">#1 certificate SHA-1 digest: c4db0963ba6fb32b4c9f3515f71040e68f670685</span>
+Signer <span style="color:#75715e">#1 certificate MD5 digest: 7fe6476d39c9fe7f81d32ccbf651eff2</span>
+</code></pre></div><p>As we can see, this command prints out the certificate information and provides both the SHA256 of the signing certificate and the common name (CN) of the developer who signed it.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="section section-on-footer" data-background="http://vengaza.github.io/images/backgrounds/bg-dots.png">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Contact Info</h2>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div class="bg-white rounded text-center p-5 shadow-down">
+          <h4 class="mb-80">Contact Form</h4>
+          <form action="https://formspree.io/f/xrgobjwe" method="POST" class="row">
+            <div class="col-md-6">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-md-6">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-12">
+              <textarea name="message" id="message" class="form-control px-0 mb-4"
+                placeholder="Type Message Here"></textarea>
+            </div>
+            <div class="col-lg-6 col-10 mx-auto">
+              <button class="btn btn-primary w-100">send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer class="bg-dark footer-section">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="text-light">Email</h5>
+          <p class="text-white paragraph-lg font-secondary">gazaven@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Github</h5>
+          <p class="text-white paragraph-lg font-secondary">github.com/vengaza</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Location</h5>
+          <p class="text-white paragraph-lg font-secondary">USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top text-center border-dark py-5">
+    <p class="mb-0 text-light">Copyright © 2020 Dustin Jones</p>
+  </div>
+</footer>
+
+
+<!-- Google Map API -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&amp;#038;types=%28cities%29&amp;#038;libraries=places&amp;#038;language=en"></script>
+
+
+<!-- JS Plugins -->
+
+<script src="http://vengaza.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/shuffle/shuffle.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/google-map/map.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="http://vengaza.github.io/js/script.min.js"></script></body>
+
+</html>

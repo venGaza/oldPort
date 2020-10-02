@@ -1,1578 +1,522 @@
-<!DOCTYPE html><html lang="en-us" >
-
-<head>
-
+<!DOCTYPE html>
+<html lang="en-us"><head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.8.0">
+  <title>Vengaza</title>
 
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Portfolio site for Dustin Jones">
   <meta name="author" content="Dustin Jones">
+  <meta name="generator" content="Hugo 0.74.3" />
 
-  
-  
-  
-    
-  
-  <meta name="description" content="Software Engineer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://vengaza.github.io/">
-
-  
-
-
-  
-  
-  
-  <meta name="theme-color" content="#3f51b5">
-  
-
-  
-  
-  
-  <script src="/js/mathjax-config.js"></script>
-  
-
-  
-  
-  
-  
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
-    
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
-    
-
-    
-
-    
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  
-
-  
-  
-  
-  
-  <link rel="stylesheet" href="/css/academic.css">
-
-  
-
-
-
-
-  
-
-
-  
-  
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  
-
-  
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="venGaza">
-  
-
-  <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
-
-  <link rel="canonical" href="https://vengaza.github.io/">
-
-  
-  
-  
-  
-  
-  
-  
-    
-    
-  
-  
-  <meta property="twitter:card" content="summary">
-  
-  <meta property="og:site_name" content="venGaza">
-  <meta property="og:url" content="https://vengaza.github.io/">
-  <meta property="og:title" content="venGaza">
-  <meta property="og:description" content="Software Engineer"><meta property="og:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
-  
-    <meta property="og:updated_time" content="2020-06-22T00:31:21-05:00">
-  
-
-  
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://vengaza.github.io/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "url": "https://vengaza.github.io/"
-}
-</script>
-
-
-  
-
-
-  
-
-
-  
-
-
-
-
-
-  <title>venGaza</title>
-
-</head>
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
-
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
-
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-  
-
-
-
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-
-    
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">venGaza</a>
-    </div>
-    
-
-    
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    
-
-    
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">venGaza</a>
-    </div>
-    
-
-    
-    
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-
-      
-      <ul class="navbar-nav d-md-inline-flex">
-        
-
-        
+  <style>
+    :root{
+      --primary-color:#2d195e;
+    }
+  </style>
 
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#talks" data-target="#talks"><span>Open Source</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/ctf/"><span>Capture the Flag</span></a>
-        </li>
-
-        
-        
-
-      
-
-        
-      </ul>
-    </div>
-
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-      
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      
-
-      
-
-      
-
-    </ul>
-
-  </div>
-</nav>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<span class="js-widget-page d-none"></span>
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="about" class="home-section wg-about   "  >
-    <div class="container">
-      
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-
-      
-      
-      <img class="avatar avatar-circle" src="/author/dustin-jones/avatar_hue844467466ef6360b73194571e568eeb_689035_270x270_fill_q90_lanczos_center.jpg" alt="Dustin Jones">
-      
-
-      <div class="portrait-title">
-        <h2>Dustin Jones</h2>
-        <h3>Software Engineer</h3>
-
-        
-        <h3>
-          
-          <span></span>
-          
-        </h3>
-        
-      </div>
-
-      <ul class="network-icon" aria-hidden="true">
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-        <li>
-          <a href="mailto:gazaven@gmail.com" >
-            <i class="fas fa-envelope big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://linkedin.com/in/jonesdusty" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://github.com/venGaza" target="_blank" rel="noopener">
-            <i class="fab fa-github big-icon"></i>
-          </a>
-        </li>
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-    <h1>About</h1>
-
-    <p>Sometimes you don&rsquo;t know what you want until you just do. I had no clue what career I wanted to pursue after finishing college, but I did know that I wanted to live a life of adventure! Luckily, my path led me into the military where I had the opportunity to travel all over the world to lead various healthcare teams and hone my leadership ability. More importantly though it gave me time to reflect on what I wanted to do in life. I eventually realized it was time to hang up the boots and head out for my next adventure.</p>
-<p>I decided to go back to school and learn how to program because tech was something that had always fascinated me. I remember coming across various articles on TechCrunch and being so envious of the projects being funded. These were people who saw problems that could be solved by leveraging technology. These were people who were trying to redefine the status quo. These were people who were busy building the future and I wanted to be one of them! I wanted to learn how to build and turn ideas into reality.</p>
-<p>As a new software engineer, I would very much describe myself as a generalist with an interest in machine learning, distributed systems, and security. My primary programming languages would be Python and Java, but I am fairly comfortable in C++ and JavaScript as well. If I had to choose between being a backend engineer and frontend engineer, I&rsquo;d probably choose the backend since I like to tinker with the server and database. Ideally, I&rsquo;m just looking to join an ambitious team working to solve complex problems with innovative solutions. If you have an opening, let&rsquo;s definitely chat and see if their is a fit. I&rsquo;m also always open to discussing the military or tech (like the nuances of read committed isolation vs snapshot isolation) as well so don&rsquo;t be a stranger.</p>
-
-
-    <div class="row">
-
-      
-      <div class="col-md-5">
-        <h3>Interests</h3>
-        <ul class="ul-interests">
-          
-          <li>Machine Learning</li>
-          
-          <li>Security</li>
-          
-          <li>Distributed Systems</li>
-          
-          <li>Blockchain</li>
-          
-        </ul>
-      </div>
-      
-
-      
-      <div class="col-md-7">
-        <h3>Education</h3>
-        <ul class="ul-edu fa-ul">
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BSc in Computer Science, 2019</p>
-              <p class="institution">Oregon State University</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BSc in Biology, 2008</p>
-              <p class="institution">University of Colorado</p>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-      
-
-    </div>
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-    
+  <!-- plugins -->
   
-
-  
-    
-    
-      
-    
-    
-    
-    
-      
-      
-    
-    
-      
-      
-    
-  
-
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.css ">
   
-    
-    
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/slick/slick.css ">
   
-
-  
-
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/themify-icons/themify-icons.css ">
   
-  
 
-  
+  <!-- Main Stylesheet -->
   
-  
+  <link rel="stylesheet" href="http://vengaza.github.io/css/style.min.css" media="screen">
 
-  
-  
-  
-  
-  
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="http://vengaza.github.io/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://vengaza.github.io/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://vengaza.github.io/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="http://vengaza.github.io/images/favicons/site.webmanifest">
 
   
-  
 
-  <section id="splash1" class="home-section wg-blank dark  bg-image parallax " style="background-image: linear-gradient(White, White);background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(&#39;https://vengaza.github.io/img/splash3.jpg&#39;);background-size: cover;background-position: center;padding: 20px 0 20px 0;" >
-    <div class="container">
-      
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-
-<div class="row">
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
   
-    <div class="col-lg-12">
-      
-      
-      <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-    </div>
+  <img src="/images/preloader.gif " alt="preloader">
   
 </div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="posts" class="home-section wg-portfolio   "  >
-    <div class="container">
+<!-- preloader end -->
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="http://vengaza.github.io">
       
-
-
-
-
-
-
-
-
-
-
-<div class="margin-auto">
-
-  <div class="center-text">
-    <h1 class="mt-0">Recent Posts</h1>
-    
-  </div>
-  <div>
-
-
-    
-
-    
-
-    <div class="isotope projects-container js-layout-masonry ">
+      <h3 class="text-white font-tertiary">Vengaza</h3>
       
-
-        
-        
-        
-
-        
-          
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-<div class="project-card project-item isotope-item ">
-  <div class="card">
-    
-    
-    <a href="/post/welcome/"  class="card-image hover-overlay">
-      <img src="/post/welcome/featured_hu64a468b3f127a6de7f0068c96d69ceb2_187733_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
     </a>
-    
-    <div class="card-text">
-      <h4><a href="/post/welcome/" >Welcome</a></h4>
-      
-      <div class="article-style">
-        <p>A brief introduction into why I created this site and what I hope to accomplish.</p>
-      </div>
-      
-    </div>
-  </div>
-</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://vengaza.github.io"> Home </a>
+        </li>
         
-
-      
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/about">About</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/portfolio">Portfolio</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/blog">Blog</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/contact">Contact</a>
+        </li>
+        
+        
+      </ul>
     </div>
+  </nav>
+</header>
 
-  </div>
-</div>
+  
+  <section class="hero-area bg-primary overflow-hidden" id="parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 mx-auto">
+          <h1 class="text-white font-tertiary">Hi! I’m <br> Dustin <br> Software Engineer</h1>
+        </div>
+      </div>
+    </div>
+    <div class="layer-bg w-100">
+      <img class="img-fluid w-100" src="/images/illustrations/leaf-bg.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l2">
+      <img src="/images/illustrations/dots-cyan.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l3">
+      <img src="/images/illustrations/leaf-orange.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l4">
+      <img src="/images/illustrations/dots-orange.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l5">
+      <img src="/images/illustrations/leaf-yellow.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l6">
+      <img src="/images/illustrations/leaf-cyan.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l7">
+      <img src="/images/illustrations/dots-group-orange.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l8">
+      <img src="/images/illustrations/leaf-pink-round.svg" alt="bg-shape">
+    </div>
+    <div class="layer" id="l9">
+      <img src="/images/illustrations/leaf-cyan-2.svg" alt="bg-shape">
+    </div>
+    
+    <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+      
+      <li class="mb-3"><a class="text-white" href="https://linkedin.com/in/jonesdusty"><i class="ti-linkedin"></i></a></li>
+      
+      <li class="mb-3"><a class="text-white" href="https://github.com/vengaza"><i class="ti-github"></i></a></li>
+      
+      <li class="mb-3"><a class="text-white" href="#"><i class="ti-twitter-alt"></i></a></li>
+      
+    </ul>
+    
+  </section>
+  
 
+  
+  
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          
+          <p class="font-secondary lead text-dark">Sometimes you don’t know what you want until you just do. I had no clue what career I wanted to pursue after finishing college, but I did know that I wanted to live a life of adventure! Luckily, my path led me into the military where I had the opportunity to travel all over the world to lead various healthcare teams and hone my leadership ability. More importantly though it gave me time to reflect on what I wanted to do in life. I eventually realized it was time to hang up the boots and head out for my next adventure.</p>
+          
+          
+          <a href="http://vengaza.github.io/about" class="btn btn-transparent">know more</a>
+          
+          
+          
+        </div>
+      </div>
     </div>
   </section>
+  
+  
+
 
   
   
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="talks" class="home-section wg-portfolio   "  >
+  <section class="section">
     <div class="container">
-      
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-
-    <h1>Open Source</h1>
-    
-
-  </div>
-  <div class="col-12 col-lg-8">
-
-
-
-    
-
-    
-
-    <div class=" row js-layout-row project-showcase mt-5">
-      
-
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Skills</h2>
+        </div>
         
-        
-        
-
-        
-          
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-<div class="col-lg-12 project-item isotope-item js-id-Open-Source">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-6">
-      <h3 class="article-title mb-0 mt-0"><a href="/talk/ghidra/" >Ghidra</a></h3>
-
-      
-      <div class="article-style">
-        A software reverse engineering (SRE) suite of tools developed by NSA&rsquo;s Research Directorate in support of the Cybersecurity mission
-      </div>
-      
-
-      <div class="btn-links">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-
-    </div>
-    <div class="col-12 col-md-6 order-first ">
-      
-      
-      
-      <a href="/talk/ghidra/" >
-        <img src="/talk/ghidra/featured_hu8de2f06ce3437a0bf6f4df3ea5b44656_189819_540x0_resize_lanczos_2.png" alt="">
-      </a>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-
-        
-        
-        
-
-        
-          
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-
-
-
-
-<div class="col-lg-12 project-item isotope-item js-id-Open-Source">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-6">
-      <h3 class="article-title mb-0 mt-0"><a href="/talk/untitled-folder/" >PX4</a></h3>
-
-      
-      <div class="article-style">
-        PX4 is an open source flight control software for drones and other unmanned vehicles. The project provides a flexible set of tools for drone developers to share technologies to create tailored solutions for drone applications.
-      </div>
-      
-
-      <div class="btn-links">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-
-    </div>
-    <div class="col-12 col-md-6 order-first order-md-2">
-      
-      
-      
-      <a href="/talk/untitled-folder/" >
-        <img src="/talk/untitled-folder/featured_hu6fc84c97db824a9d69f6a7b79b1af623_84864_540x0_resize_lanczos_2.png" alt="">
-      </a>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-    </div>
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="projects" class="home-section wg-portfolio   "  >
-    <div class="container">
-      
-
-
-
-
-
-
-
-
-
-
-<div class="margin-auto">
-
-  <div class="center-text">
-    <h1 class="mt-0">Projects</h1>
-    
-  </div>
-  <div>
-
-
-    
-
-    
-
-      
-
-      
-      
-      
-      
-        
-      
-
-      <span class="d-none default-project-filter">*</span>
-
-      
-      
-      <div class="project-toolbar">
-        <div class="project-filters">
-          <div class="btn-toolbar">
-            <div class="btn-group flex-wrap">
-              
-                
-                
-                
-                  
-                
-                <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-Full-Stack" class="btn btn-primary btn-lg">Web Development</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-UI-UX" class="btn btn-primary btn-lg">User Experience</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-Machine-Learning" class="btn btn-primary btn-lg">Machine Learning</a>
-              
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+              <div class="wave" data-progress="40%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Machine Learning (40%)</h4>
             </div>
           </div>
         </div>
+        
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#9473e6">
+              <div class="wave" data-progress="40%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Deep Learning (40%)</h4>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#bdecf6">
+              <div class="wave" data-progress="40%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Software Engineering (40%)</h4>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#ffbcaa">
+              <div class="wave" data-progress="75%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Algorithmic Coding (75%)</h4>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      
-    
-
-    <div class="isotope projects-container js-layout-masonry ">
-      
-
-        
-        
-        
-
-        
-          
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-<div class="project-card project-item isotope-item js-id-Machine-Learning">
-  <div class="card">
-    
-    
-    <a href="/project/enigma/"  class="card-image hover-overlay">
-      <img src="/project/enigma/featured_huc5a87dae988079ccca016b289ea8667b_1981653_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-    </a>
-    
-    <div class="card-text">
-      <h4><a href="/project/enigma/" >Enigma</a></h4>
-      
-      <div class="article-style">
-        <p>Various classification machine learning models used as an introductory into the world of AI</p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-<div class="project-card project-item isotope-item js-id-UI-UX">
-  <div class="card">
-    
-    
-    <a href="https://xd.adobe.com/view/f1135a4f-0b98-4ea5-44d5-d6030aaeb56c-8722/?fullscreen" target="_blank" rel="noopener" class="card-image hover-overlay">
-      <img src="/project/treasurehunt/featured_hu7f2c31cb17c6b91aa8599714a1cd3d05_233029_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-    </a>
-    
-    <div class="card-text">
-      <h4><a href="https://xd.adobe.com/view/f1135a4f-0b98-4ea5-44d5-d6030aaeb56c-8722/?fullscreen" target="_blank" rel="noopener">TreasureHunt</a></h4>
-      
-      <div class="article-style">
-        <p>My first foray into building a high fidelity mockup for a treasure hunting mobile application with Adobe XD.</p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-
-        
-        
-        
-
-        
-          
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-<div class="project-card project-item isotope-item js-id-Full-Stack">
-  <div class="card">
-    
-    
-    <a href="/project/ukdah/"  class="card-image hover-overlay">
-      <img src="/project/ukdah/featured_hu0256d15f6e9db231b9c5ef1d66fcbf17_1803485_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-    </a>
-    
-    <div class="card-text">
-      <h4><a href="/project/ukdah/" >Ukdah</a></h4>
-      
-      <div class="article-style">
-        <p>Full-Stack PDF certificate generator built using NodeJS, ExpressJS, and SQLite for capstone</p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-    </div>
-
-  </div>
-</div>
-
     </div>
   </section>
+  
+  
+  
 
-
-
-      
-
-    
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-
-      
-
-      
+  
+  
+  
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Experience</h2>
+        </div>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
         
-      
+        <div class="col-lg-3 col-md-4 text-center">
+          <div class="row justify-content-around">
+            <lottie-player id="firstLottie" src="https://assets7.lottiefiles.com/temp/lf20_3bpCnZ.json" style="width:250px; height: 250px;" loop autoplay mode="bounce" alt="icon">"></lottie-player>
+          </div>
+          
+          <p class="mb-0">Apr 2019 - Present</p>
+          <h4>Software Engineer - ML</h4>
+          <h6 class="text-light">Self</h6>
+          <img src="/images/experience/icon-1.png" alt="icon">
+        </div>
+        
+        <div class="col-lg-3 col-md-4 text-center">
+          <div class="row justify-content-around">
+            <lottie-player id="firstLottie" src="https://assets7.lottiefiles.com/temp/lf20_3bpCnZ.json" style="width:250px; height: 250px;" loop autoplay mode="bounce" alt="icon">"></lottie-player>
+          </div>
+          
+          <p class="mb-0">Mar 2009 - Jan 2016</p>
+          <h4>Healthcare Administrator</h4>
+          <h6 class="text-light">Military</h6>
+          <img src="/images/experience/icon-2.png" alt="icon">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  
+  
 
+  
+  
+  
+  <section class="section position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Education</h2>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 mb-80">
+          <div class="d-flex">
+            <div class="mr-lg-5 mr-3">
+              <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
+            </div>
+            <div>
+              <p class="text-dark mb-1">2019</p>
+              <h4>BSc in Computer Science</h4>
+              <p class="mb-0 text-light">Oregon State University</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 mb-80">
+          <div class="d-flex">
+            <div class="mr-lg-5 mr-3">
+              <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
+            </div>
+            <div>
+              <p class="text-dark mb-1">2008</p>
+              <h4>BSc in Biology</h4>
+              <p class="mb-0 text-light">University of Colorado</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
     
+    <img class="img-fluid edu-bg-image w-100" src="/images/backgrounds/education-bg.png" alt="bg-image">
+  </section>
+  
+  
+  
 
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
-    
 
-    
-    
-    <script>const code_highlighting = true;</script>
-    
+  
 
-    
-    
-    <script>const isSiteThemeDark = false;</script>
-    
 
-    
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-    
-
-    
-    
-
-    
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
+  
+  
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Portfolio</h2>
         </div>
       </div>
+      <div class="row shuffle-wrapper">
+        
+        
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+            <img src="http://vengaza.github.io/images/portfolio/item-0.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="http://vengaza.github.io/portfolio/project-0/">view project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+            <img src="http://vengaza.github.io/images/portfolio/item-1.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="http://vengaza.github.io/portfolio/project-1/">view project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+            <img src="http://vengaza.github.io/images/portfolio/item-2.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="http://vengaza.github.io/portfolio/project-2/">view project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
-    </script>
-    
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
-
-    
-    
-
-    
-    
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
-
-    
-
-
-
-
+    </div>
+  </section>
+  
+  
 
 
   
+
+
   
+
+  
+  
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Blog</h2>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 mb-4">
+  <article class="card shadow">
+    <img class="rounded card-img-top" src="/images/blog/nsa.png" alt="NSA CodeBreaker 2019: Task 1">
+    <div class="card-body">
+      <h4 class="card-title"><a class="text-dark" href="http://vengaza.github.io/blog/post-1/">NSA CodeBreaker 2019: Task 1</a>
+      </h4>
+      <p class="cars-text">It Begins! Category: Network Traffic Analysis
+There are many challenges that we will need to overcome in order to exploit TerrorTime.</p>
+      <a href="http://vengaza.github.io/blog/post-1/" class="btn btn-sm btn-primary">Read More</a>
+    </div>
+  </article>
+</div>
+        
+        <div class="col-lg-4 col-sm-6 mb-4">
+  <article class="card shadow">
+    <img class="rounded card-img-top" src="/images/blog/nsa.png" alt="NSA CodeBreaker 2019: Task 2">
+    <div class="card-body">
+      <h4 class="card-title"><a class="text-dark" href="http://vengaza.github.io/blog/post-2/">NSA CodeBreaker 2019: Task 2</a>
+      </h4>
+      <p class="cars-text">It Begins! Category: Network Traffic Analysis
+There are many challenges that we will need to overcome in order to exploit TerrorTime.</p>
+      <a href="http://vengaza.github.io/blog/post-2/" class="btn btn-sm btn-primary">Read More</a>
+    </div>
+  </article>
+</div>
+        
+        <div class="col-lg-4 col-sm-6 mb-4">
+  <article class="card shadow">
+    <img class="rounded card-img-top" src="/images/blog/nsa.png" alt="NSA CodeBreaker 2019: Task 3">
+    <div class="card-body">
+      <h4 class="card-title"><a class="text-dark" href="http://vengaza.github.io/blog/post-3/">NSA CodeBreaker 2019: Task 3</a>
+      </h4>
+      <p class="cars-text">Turn of Events Category: Database Analysis
+Analysts found TerrorTime installed on a device at a port of entry.</p>
+      <a href="http://vengaza.github.io/blog/post-3/" class="btn btn-sm btn-primary">Read More</a>
+    </div>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+
+
+<section class="section section-on-footer" data-background="http://vengaza.github.io/images/backgrounds/bg-dots.png">
   <div class="container">
-    <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-  </p>
-
-  
-  
-
-
-
-
-
-
-  <p class="powered-by">
-    Copyright &copy; 2020 venGaza. All rights reserved. 
-  </p>
-</footer>
-
-  </div>
-  
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Contact Info</h2>
       </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
+      <div class="col-lg-8 mx-auto">
+        <div class="bg-white rounded text-center p-5 shadow-down">
+          <h4 class="mb-80">Contact Form</h4>
+          <form action="https://formspree.io/f/xrgobjwe" method="POST" class="row">
+            <div class="col-md-6">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-md-6">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-12">
+              <textarea name="message" id="message" class="form-control px-0 mb-4"
+                placeholder="Type Message Here"></textarea>
+            </div>
+            <div class="col-lg-6 col-10 mx-auto">
+              <button class="btn btn-primary w-100">send</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-</body>
+
+
+
+<footer class="bg-dark footer-section">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="text-light">Email</h5>
+          <p class="text-white paragraph-lg font-secondary">gazaven@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Github</h5>
+          <p class="text-white paragraph-lg font-secondary">github.com/vengaza</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Location</h5>
+          <p class="text-white paragraph-lg font-secondary">USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top text-center border-dark py-5">
+    <p class="mb-0 text-light">Copyright © 2020 Dustin Jones</p>
+  </div>
+</footer>
+
+
+<!-- Google Map API -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&amp;#038;types=%28cities%29&amp;#038;libraries=places&amp;#038;language=en"></script>
+
+
+<!-- JS Plugins -->
+
+<script src="http://vengaza.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/shuffle/shuffle.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/google-map/map.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="http://vengaza.github.io/js/script.min.js"></script></body>
+
 </html>

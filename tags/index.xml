@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags | venGaza</title>
-    <link>https://vengaza.github.io/tags/</link>
-      <atom:link href="https://vengaza.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 26 May 2020 17:27:43 -0500</lastBuildDate>
-    <image>
-      <url>https://vengaza.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Tags</title>
-      <link>https://vengaza.github.io/tags/</link>
-    </image>
+    <title>Tags on Vengaza</title>
+    <link>http://vengaza.github.io/tags/</link>
+    <description>Recent content in Tags on Vengaza</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://vengaza.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
   </channel>
 </rss>

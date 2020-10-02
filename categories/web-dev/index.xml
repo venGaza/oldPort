@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Dev on Vengaza</title>
+    <link>http://vengaza.github.io/categories/web-dev/</link>
+    <description>Recent content in Web Dev on Vengaza</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Apr 2019 12:14:34 +0600</lastBuildDate>
+    
+	<atom:link href="http://vengaza.github.io/categories/web-dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ukdah</title>
+      <link>http://vengaza.github.io/portfolio/project-2/</link>
+      <pubDate>Fri, 12 Apr 2019 12:14:34 +0600</pubDate>
+      
+      <guid>http://vengaza.github.io/portfolio/project-2/</guid>
+      <description>Project Overview Awards play a critical role in recognizing employee accomplishments and boosting morale within an organization but most systems are out of date or too reliant upon an extensive human resources staff.</description>
+    </item>
+    
+  </channel>
+</rss>

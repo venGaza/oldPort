@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>NSA CodeBreaker 2019: Task 4</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Solution for NSA Codebreak challenge task 4">
+  <meta name="author" content="Dustin Jones">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  <style>
+    :root{
+      --primary-color:#2d195e;
+    }
+  </style>
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/plugins/themify-icons/themify-icons.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="http://vengaza.github.io/css/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="http://vengaza.github.io/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://vengaza.github.io/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://vengaza.github.io/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="http://vengaza.github.io/images/favicons/site.webmanifest">
+
+  
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+  <img src="/images/preloader.gif " alt="preloader">
+  
+</div>
+<!-- preloader end -->
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="http://vengaza.github.io">
+      
+      <h3 class="text-white font-tertiary">Vengaza</h3>
+      
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://vengaza.github.io"> Home </a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/about">About</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/portfolio">Portfolio</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/blog">Blog</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="http://vengaza.github.io/contact">Contact</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  
+<section class="page-title bg-primary position-relative overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="text-white font-tertiary">NSA CodeBreaker 2019: Task 4</h1>
+      </div>
+    </div>
+  </div>
+  
+  <img src="/images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
+  <img src="/images/illustrations/leaf-pink-round.svg" alt="illustrations" class="bg-shape-2">
+  <img src="/images/illustrations/dots-cyan.svg" alt="illustrations" class="bg-shape-3">
+  <img src="/images/illustrations/leaf-orange.svg" alt="illustrations" class="bg-shape-4">
+  <img src="/images/illustrations/leaf-yellow.svg" alt="illustrations" class="bg-shape-5">
+  <img src="/images/illustrations/dots-group-cyan.svg" alt="illustrations" class="bg-shape-6">
+  <img src="/images/illustrations/leaf-cyan-lg.svg" alt="illustrations" class="bg-shape-7">
+</section>
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 text-center mb-4">
+          <img src="http://vengaza.github.io/images/blog/nsa.png" alt="NSA CodeBreaker 2019: Task 4" class="img-fluid rounded mb-4">
+          <p class="font-secondary">Published on May 13, 2020 by <span class="text-primary">Dustin Jones</span></p>
+        </div>
+        <div class="col-lg-9">
+          <div class="content">
+            <h2 id="schemes">Schemes</h2>
+<p>Category: Reverse Engineering;</p>
+<p>Analysts discovered that the database has cached credentials but requires a pin to log in. If we can determine how the credentials are protected and find a way to recover the pin, we should be able to masquerade as the arrested terrorist. Perform reverse engineering to identify how the terrorist’s credentials are protected and submit the terrorist&rsquo;s Client ID and Client Secret. Once you have uncovered their credentials, masquerade (i.e., login) as him using the TerrorTime app. Review their chat history and assess additional information regarding their organization. Though the app encrypts messages back and forth, the terrorists have previously spoken in some form of code to ensure their plans were protected. To prove completion of this task, you will need to analyze the terrorist&rsquo;s conversation history in order to uncover/deduce the following information:</p>
+<h3 id="flags">Flags</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Cell Leader Username (ASCII)</li>
+<li><input disabled="" type="checkbox"> Action Date (Unix timestamp, integer)</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>jadx -d out &lt;FILE.APK&gt;</code> - Converts DEX -&gt; JAR -&gt; Java (Source)</li>
+<li><code>date -j -f &quot;%Y:%m:%d %H:%M:%S&quot; &lt;'YYYY:MM:DD HH:MM:SS'&gt; +%s</code> - Print out unix timestamp for date</li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><a href="https://developer.android.com/studio">Android Studio</a> - Google IDE for Android</li>
+<li><a href="https://github.com/skylot/jadx">JADX</a> - Dex to Java decompiler</li>
+<li><a href="https://ghidra-sre.org/">Ghidra</a> - NSA&rsquo;s software reverse engineering suite (Optional)</li>
+</ul>
+<h3 id="analysis">Analysis</h3>
+<p>Let the fun begin! The goal of this challenge is to hack our way into the terrorist&rsquo;s account on the TerrorTime application to review chat information for pertinent information. Before we start, we need to set up an emulation environment to run the TerrorTime APK. I recommend using the Android Virtual Device (AVD) manager within <!-- raw HTML omitted -->Android Studio<!-- raw HTML omitted -->. AVD setup documentation can be found at the following link:</p>
+<blockquote>
+<p><a href="https://developer.android.com/studio/run/emulator">https://developer.android.com/studio/run/emulator</a></p>
+</blockquote>
+<p>Once the emulator is up and running, drag the APK file onto the emulator to install the TerrorTime application. Before running the application, make sure to use the File Device Explorer within Android Studio to replace the emulator&rsquo;s TerrorTime <code>clientDB.db</code> file with the one from the previous task. The file can be located at <code>DATA &gt; DATA &gt; COM.BADGUY.TERRORTIME &gt; DATABASES &gt; CLIENTDB.DB</code>.</p>
+<p>When we start the application, we are presented with a login screen and asked to enter the client ID along with a pin. We have a client ID from the Task 3, but the potential pin(the blob data within checkpin) is encoded using an unknown format. We do know that it is 32 bytes (256 bits) in size based on the information DB Browser provided. I ended up fuzzing the login to see how the application would react, and it reveals the pin must be 6 digits in length. This is another vital clue because it means the pin is susceptible to being bruteforced.</p>
+<p>$$ \text{10 choices for each pin digit with replacement} = 0-9$$
+$$  10 \times 10 \times 10 \times 10 \times 10 \times 10 = 10^{6} $$
+$$ 1000000 \text{ combinations} $$</p>
+<p>If we could determine how the pin was being transformed (hashed) to be stored in the database, we could create a script to generate the <code>hash</code> of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <!-- raw HTML omitted -->JADX<!-- raw HTML omitted -->, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Outputs Java source code to out folder</span>
+$ jadx -d out terrortime.apk 
+</code></pre></div><p>This command outputs a folder named <code>out</code> which contains the decompiled source code from the <code>APK</code>. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the <code>OUT &gt; SOURCES &gt; COM &gt; BADGUY &gt; TERRORTIME</code> folder. This folder contains the various classes that the APK uses. After a quick scan of the file names, I decided to look at the <code>LoginActivity.java</code> file to see if I could understand how the login page was verifying the pin input.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//LoginActivity.java
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">success</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">client</span><span style="color:#f92672">.</span><span style="color:#a6e22e">generateSymmetricKey</span><span style="color:#f92672">();</span> <span style="color:#f92672">&lt;----</span> <span style="color:#e6db74">&#34;Possible pin encoding or encryption&#34;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">client</span><span style="color:#f92672">.</span><span style="color:#a6e22e">validateAccessToken</span><span style="color:#f92672">(</span>activity<span style="color:#f92672">.</span><span style="color:#a6e22e">getApplicationContext</span><span style="color:#f92672">());</span>
+    Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LOGINACTIVITY&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Token request successful. &#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Let&rsquo;s check the <code>Client.java</code> class and learn more about this function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Client.java
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> SecretKey <span style="color:#a6e22e">generateSymmetricKey</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+  String ePin <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">encryptPin</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">();</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">encryptPin</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isDefaultValue</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> salt <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">checkPin</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">();</span>
+      <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> hash <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+      
+      <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+          <span style="color:#75715e">// Pin is UTF8 encoded, converted to byte array, and hashed with SHA256
+</span><span style="color:#75715e"></span>          hash <span style="color:#f92672">=</span> MessageDigest<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SHA-256&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">digest</span><span style="color:#f92672">(</span>ePin<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">UTF8</span><span style="color:#f92672">));</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>salt <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              salt <span style="color:#f92672">=</span> hash<span style="color:#f92672">;</span>
+              <span style="color:#75715e">// Side Note: The pin hash appears to be used as a salt for an encryption
+</span><span style="color:#75715e"></span>              <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">checkPin</span><span style="color:#f92672">.</span><span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span>salt<span style="color:#f92672">);</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>A quick Google search reveals the Java <code>digest</code> method from the <code>MessageDigest</code> class returns an array of 32 bytes for the resulting SHA256 hash. This matches the format of the checkpin blob from the database and we can reasonably assume that the byte representation is the output of the SHA256 hashing function. Let&rsquo;s write a quick script to test this theory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#! python3</span>
+<span style="color:#f92672">from</span> hashlib <span style="color:#f92672">import</span> sha256
+
+targetHash <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;925e82c7069676d7d6e2ae4a114c4b327f3022f5e025189d07baf7c935725ce8&#34;</span>
+pin <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+
+<span style="color:#75715e"># Brute force each pin combo from 000000 - 999999</span>
+<span style="color:#75715e"># Time = O(N)</span>
+<span style="color:#75715e"># Space = O(1)</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000000</span>):
+    candidate <span style="color:#f92672">=</span> str(i)<span style="color:#f92672">.</span>zfill(<span style="color:#ae81ff">6</span>)
+    candidateHash<span style="color:#f92672">=</span> sha256(candidate<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))<span style="color:#f92672">.</span>hexdigest()
+    <span style="color:#66d9ef">if</span> candidateHash <span style="color:#f92672">==</span> targetHash:
+        pin <span style="color:#f92672">=</span> candidate
+        <span style="color:#66d9ef">break</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Pin not found&#34;</span>) <span style="color:#66d9ef">if</span> pin <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Pin: {}&#34;</span><span style="color:#f92672">.</span>format(pin))
+</code></pre></div><p>We now have the client ID and pin. Let&rsquo;s try to login into the application once again.</p>
+<blockquote>
+<p>Client ID: <a href="mailto:zoe--vhost-3823@terrortime.app">zoe--vhost-3823@terrortime.app</a> <!-- raw HTML omitted -->
+Client Pin: 021086</p>
+</blockquote>
+<p>Success! We now have access to Zoe&rsquo;s TerrorTime account and discover 2 of her contacts, Joseph and Emanuel. Each contact has a chat history log stored and it is reasonable to assume Emanuel is the person of authority in the conversation compared to Joseph.</p>
+<blockquote>
+<p>Cell Leader Username: <a href="mailto:emanuel--vhost-3823@terrortime.app">emanuel--vhost-3823@terrortime.app</a></p>
+</blockquote>
+<p>The last piece of this task is finding the date-time group of the proposed attack. The chat messages indicate they are planning to meet up on December 28, 2019 @ 2012 (delivering wine to the wedding 4 days before New Year&rsquo;s Day). However, we need the Unix timestamp of the date. We&rsquo;ll use the <code>date</code> command in MacOS to calculate the value:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Output the Unix timestamp for December 28, 2019 @ 20:12:00</span>
+$ date -j -f <span style="color:#e6db74">&#34;%Y:%m:%d %H:%M:%S&#34;</span> <span style="color:#e6db74">&#39;2019:12:28 20:12:00&#39;</span> +%s
+<span style="color:#ae81ff">1577585520</span>
+</code></pre></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="section section-on-footer" data-background="http://vengaza.github.io/images/backgrounds/bg-dots.png">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Contact Info</h2>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div class="bg-white rounded text-center p-5 shadow-down">
+          <h4 class="mb-80">Contact Form</h4>
+          <form action="https://formspree.io/f/xrgobjwe" method="POST" class="row">
+            <div class="col-md-6">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-md-6">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
+            </div>
+            <div class="col-12">
+              <textarea name="message" id="message" class="form-control px-0 mb-4"
+                placeholder="Type Message Here"></textarea>
+            </div>
+            <div class="col-lg-6 col-10 mx-auto">
+              <button class="btn btn-primary w-100">send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer class="bg-dark footer-section">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="text-light">Email</h5>
+          <p class="text-white paragraph-lg font-secondary">gazaven@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Github</h5>
+          <p class="text-white paragraph-lg font-secondary">github.com/vengaza</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-light">Location</h5>
+          <p class="text-white paragraph-lg font-secondary">USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top text-center border-dark py-5">
+    <p class="mb-0 text-light">Copyright © 2020 Dustin Jones</p>
+  </div>
+</footer>
+
+
+<!-- Google Map API -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&amp;#038;types=%28cities%29&amp;#038;libraries=places&amp;#038;language=en"></script>
+
+
+<!-- JS Plugins -->
+
+<script src="http://vengaza.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/shuffle/shuffle.min.js"></script>
+
+<script src="http://vengaza.github.io/plugins/google-map/map.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="http://vengaza.github.io/js/script.min.js"></script></body>
+
+</html>

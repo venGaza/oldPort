@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Vengaza</title>
+    <link>http://vengaza.github.io/blog/</link>
+    <description>Recent content in Blog on Vengaza</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 May 2020 13:14:34 +0600</lastBuildDate>
+    
+	<atom:link href="http://vengaza.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NSA CodeBreaker 2019: Task 1</title>
+      <link>http://vengaza.github.io/blog/post-1/</link>
+      <pubDate>Wed, 13 May 2020 13:14:34 +0600</pubDate>
+      
+      <guid>http://vengaza.github.io/blog/post-1/</guid>
+      <description>It Begins! Category: Network Traffic Analysis
+There are many challenges that we will need to overcome in order to exploit TerrorTime.</description>
+    </item>
+    
+    <item>
+      <title>NSA CodeBreaker 2019: Task 2</title>
+      <link>http://vengaza.github.io/blog/post-2/</link>
+      <pubDate>Wed, 13 May 2020 11:14:34 +0600</pubDate>
+      
+      <guid>http://vengaza.github.io/blog/post-2/</guid>
+      <description>It Begins! Category: Network Traffic Analysis
+There are many challenges that we will need to overcome in order to exploit TerrorTime.</description>
+    </item>
+    
+    <item>
+      <title>NSA CodeBreaker 2019: Task 3</title>
+      <link>http://vengaza.github.io/blog/post-3/</link>
+      <pubDate>Wed, 13 May 2020 10:14:34 +0600</pubDate>
+      
+      <guid>http://vengaza.github.io/blog/post-3/</guid>
+      <description>Turn of Events Category: Database Analysis
+Analysts found TerrorTime installed on a device at a port of entry.</description>
+    </item>
+    
+    <item>
+      <title>NSA CodeBreaker 2019: Task 4</title>
+      <link>http://vengaza.github.io/blog/post-4/</link>
+      <pubDate>Wed, 13 May 2020 09:14:34 +0600</pubDate>
+      
+      <guid>http://vengaza.github.io/blog/post-4/</guid>
+      <description>Schemes Category: Reverse Engineering;
+Analysts discovered that the database has cached credentials but requires a pin to log in.</description>
+    </item>
+    
+  </channel>
+</rss>
