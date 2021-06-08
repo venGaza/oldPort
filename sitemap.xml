@@ -1,92 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://vengaza.github.io/portfolio/project-0/</loc>
-    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://vengaza.github.io/categories/</loc>
-    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vengaza.github.io/categories/dl/</loc>
-    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vengaza.github.io/categories/ml/</loc>
-    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vengaza.github.io/portfolio/</loc>
-    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
+    <loc>https://vengaza.github.io/categories/computer-vision/</loc>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
+    <loc>https://vengaza.github.io/categories/deeplearning/</loc>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
     <loc>https://vengaza.github.io/</loc>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
+    <loc>https://vengaza.github.io/portfolio/project-3/</loc>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
+    <loc>https://vengaza.github.io/portfolio/</loc>
+    <lastmod>2021-05-01T12:14:34+06:00</lastmod>
+  </url><url>
+    <loc>https://vengaza.github.io/portfolio/project-0/</loc>
     <lastmod>2020-07-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://vengaza.github.io/categories/machinelearning/</loc>
+    <lastmod>2020-07-13T12:14:34+06:00</lastmod>
+  </url><url>
     <loc>https://vengaza.github.io/blog/</loc>
     <lastmod>2020-05-13T13:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/blog/post-1/</loc>
     <lastmod>2020-05-13T13:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/categories/design/</loc>
     <lastmod>2020-05-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/portfolio/project-1/</loc>
     <lastmod>2020-05-13T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/blog/post-2/</loc>
     <lastmod>2020-05-13T11:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/blog/post-3/</loc>
     <lastmod>2020-05-13T10:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/blog/post-4/</loc>
     <lastmod>2020-05-13T09:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/portfolio/project-2/</loc>
     <lastmod>2019-04-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/categories/web-dev/</loc>
     <lastmod>2019-04-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/about/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/contact/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://vengaza.github.io/tags/</loc>
   </url>
-  
 </urlset>

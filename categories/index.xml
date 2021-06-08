@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Vengaza</title>
+    <title>Categories on Dustin Jones</title>
     <link>https://vengaza.github.io/categories/</link>
-    <description>Recent content in Categories on Vengaza</description>
+    <description>Recent content in Categories on Dustin Jones</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2020 12:14:34 +0600</lastBuildDate>
-    
-	<atom:link href="https://vengaza.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 01 May 2021 12:14:34 +0600</lastBuildDate><atom:link href="https://vengaza.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DL</title>
-      <link>https://vengaza.github.io/categories/dl/</link>
-      <pubDate>Mon, 13 Jul 2020 12:14:34 +0600</pubDate>
+      <title>Computer Vision</title>
+      <link>https://vengaza.github.io/categories/computer-vision/</link>
+      <pubDate>Sat, 01 May 2021 12:14:34 +0600</pubDate>
       
-      <guid>https://vengaza.github.io/categories/dl/</guid>
+      <guid>https://vengaza.github.io/categories/computer-vision/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>ML</title>
-      <link>https://vengaza.github.io/categories/ml/</link>
+      <title>DeepLearning</title>
+      <link>https://vengaza.github.io/categories/deeplearning/</link>
+      <pubDate>Sat, 01 May 2021 12:14:34 +0600</pubDate>
+      
+      <guid>https://vengaza.github.io/categories/deeplearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MachineLearning</title>
+      <link>https://vengaza.github.io/categories/machinelearning/</link>
       <pubDate>Mon, 13 Jul 2020 12:14:34 +0600</pubDate>
       
-      <guid>https://vengaza.github.io/categories/ml/</guid>
+      <guid>https://vengaza.github.io/categories/machinelearning/</guid>
       <description></description>
     </item>
     

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolio on Vengaza</title>
+    <title>Projects on Dustin Jones</title>
     <link>https://vengaza.github.io/portfolio/</link>
-    <description>Recent content in Portfolio on Vengaza</description>
+    <description>Recent content in Projects on Dustin Jones</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2020 12:14:34 +0600</lastBuildDate>
-    
-	<atom:link href="https://vengaza.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 01 May 2021 12:14:34 +0600</lastBuildDate><atom:link href="https://vengaza.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gesture Volume Control</title>
+      <link>https://vengaza.github.io/portfolio/project-3/</link>
+      <pubDate>Sat, 01 May 2021 12:14:34 +0600</pubDate>
+      
+      <guid>https://vengaza.github.io/portfolio/project-3/</guid>
+      <description>Project Overview Awards play a critical role in recognizing employee accomplishments and boosting morale within an organization but most systems are out of date or too reliant upon an extensive human resources staff.</description>
+    </item>
     
     <item>
       <title>AI Notebooks</title>

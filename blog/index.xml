@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Vengaza</title>
+    <title>Blog on Dustin Jones</title>
     <link>https://vengaza.github.io/blog/</link>
-    <description>Recent content in Blog on Vengaza</description>
+    <description>Recent content in Blog on Dustin Jones</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 May 2020 13:14:34 +0600</lastBuildDate>
-    
-	<atom:link href="https://vengaza.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 13 May 2020 13:14:34 +0600</lastBuildDate><atom:link href="https://vengaza.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NSA CodeBreaker 2019: Task 1</title>
       <link>https://vengaza.github.io/blog/post-1/</link>

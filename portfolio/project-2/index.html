@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Ukdah: PDF Generator application">
   <meta name="author" content="Dustin Jones">
-  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <style>
     :root{
@@ -36,21 +36,16 @@
 
   
 
+  <!--Lottie animations-->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <!--Icons from FontAwesome-->
+  <script src="https://kit.fontawesome.com/7152698aa2.js" crossorigin="anonymous"></script>
 
-</head><body>
-<!-- preloader start -->
-<div class="preloader">
-  
-  <img src="/images/preloader.gif " alt="preloader">
-  
-</div>
-<!-- preloader end -->
-<header class="navigation fixed-top">
+</head><body><header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="https://vengaza.github.io">
       
-      <h3 class="text-white font-tertiary">Vengaza</h3>
+      <h3 class="text-white font-tertiary">Dustin Jones</h3>
       
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -69,15 +64,7 @@
         
         
         <li class="nav-item ">
-          <a class="nav-link" href="https://vengaza.github.io/about">About</a>
-        </li>
-        
-        
-        
-        
-        
-        <li class="nav-item ">
-          <a class="nav-link" href="https://vengaza.github.io/portfolio">Portfolio</a>
+          <a class="nav-link" href="https://vengaza.github.io/portfolio">Projects</a>
         </li>
         
         
@@ -93,7 +80,7 @@
         
         
         <li class="nav-item ">
-          <a class="nav-link" href="https://vengaza.github.io/contact">Contact</a>
+          <a class="nav-link" href="https://vengaza.github.io/about">About</a>
         </li>
         
         
@@ -112,13 +99,17 @@
     </div>
   </div>
   
-  <img src="/images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="/images/illustrations/leaf-pink-round.svg" alt="illustrations" class="bg-shape-2">
+  <img src="/images/illustrations/projects.png" alt="illustrations" class="bg-shape-1 w-100">
+  
   <img src="/images/illustrations/dots-cyan.svg" alt="illustrations" class="bg-shape-3">
-  <img src="/images/illustrations/leaf-orange.svg" alt="illustrations" class="bg-shape-4">
-  <img src="/images/illustrations/leaf-yellow.svg" alt="illustrations" class="bg-shape-5">
+  
+  <img src="/images/illustrations/dots-group-v.svg" alt="illustrations" class="bg-shape-5">
   <img src="/images/illustrations/dots-group-cyan.svg" alt="illustrations" class="bg-shape-6">
-  <img src="/images/illustrations/leaf-cyan-lg.svg" alt="illustrations" class="bg-shape-7">
+  
+  <div class="bg-shape-7">
+    
+    <lottie-player id="firstLottie" src="../images/illustrations/gears.json" style="width:600px; height: 600px;" loop autoplay mode="bounce" alt="gears">"></lottie-player>
+  </div>
 </section>
 
 
@@ -128,7 +119,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-5 mb-5">
-        <img src="https://vengaza.github.io/images/portfolio/item-2.png" class="img-fluid w-100" alt="Ukdah">
+        <img src="https://vengaza.github.io/images/portfolio/ukdah.jpg" class="img-fluid w-100" alt="Ukdah">
       </div>
       <div class="col-lg-7 mb-5 mb-lg-0 align-self-center">
         <div class="row mx-0">
@@ -188,67 +179,29 @@
 
 
 
-<section class="section section-on-footer" data-background="https://vengaza.github.io/images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="https://formspree.io/f/xrgobjwe" method="POST" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
 
 <footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">gazaven@gmail.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Github</h5>
-          <p class="text-white paragraph-lg font-secondary">github.com/vengaza</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Location</h5>
-          <p class="text-white paragraph-lg font-secondary">USA</p>
-        </div>
+  
+  
+  
+  <div class="container">
+    <div class="row footer-wrapper">
+      <div class="col-sm-6"><p class="mb-0 text-light">Copyright © 2021 Dustin Jones. All rights reserved.</p></div>
+      <div class="col-sm-6">
+        <span class="footer-icons">
+          
+          <a class="text-white" href="https://linkedin.com/in/jonesdusty"><i class="fab fa-lg fa-linkedin-in"></i></a>
+          
+          <a class="text-white" href="https://github.com/vengaza"><i class="fab fa-lg fa-github"></i></a>
+          
+        </span>
       </div>
     </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright © 2020 Dustin Jones</p>
   </div>
 </footer>
 
 
 <!-- Google Map API -->
-
-<script src="https://maps.googleapis.com/maps/api/js?key=&amp;#038;types=%28cities%29&amp;#038;libraries=places&amp;#038;language=en"></script>
 
 
 <!-- JS Plugins -->

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>design on Vengaza</title>
+    <title>design on Dustin Jones</title>
     <link>https://vengaza.github.io/categories/design/</link>
-    <description>Recent content in design on Vengaza</description>
+    <description>Recent content in design on Dustin Jones</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 May 2020 12:14:34 +0600</lastBuildDate>
-    
-	<atom:link href="https://vengaza.github.io/categories/design/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 13 May 2020 12:14:34 +0600</lastBuildDate><atom:link href="https://vengaza.github.io/categories/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Treasure Hunt</title>
       <link>https://vengaza.github.io/portfolio/project-1/</link>
