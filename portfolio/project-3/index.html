@@ -137,7 +137,7 @@
             <div class="project-meta">
               <i class="ti-user"></i>
               <div class="ml-3">
-                <h4>Client</h4>
+                <h4>Type</h4>
                 <p>Personal</p>
               </div>
             </div>
@@ -166,10 +166,46 @@
         </div>
       </div>
       <div class="col-lg-11">
-        <div class="content"><h4 id="project-overview">Project Overview</h4>
-<p>Awards play a critical role in recognizing employee accomplishments and boosting morale within an organization but most systems are out of date or too reliant upon an extensive human resources staff. The Ukdah team aims to solve this problem by working on a database-backed, responsive website which can be used to track and deliver employee recognition awards. The website will streamline the recognition process by giving users the ability to send recognition to those that they feel are deserving, and it will also provide critical business intelligence data to users overseeing the management of their awards program. Every employee deserves to be recognized for the value he/she brings to their respective organizations while organizations deserve a simple and effective solution to accomplish this. The Ukdah employee recognition website will lead the way!</p>
+        <div class="content"><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#project-overview">Project Overview</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#project-details">Project Details</a>
+<ul>
+<li><a href="#language">Language</a></li>
+<li><a href="#primary-modules">Primary Modules</a></li>
+<li><a href="#design-thoughts">Design Thoughts</a></li>
+<li><a href="#potential-use-cases">Potential Use Cases</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="project-overview">Project Overview</h4>
+<p>Computer vision is a scientific field that allows the machine to develop an understanding of an image or video. With the use of openCV and Google&rsquo;s MediaPipe library, you can easily integrate computer vision capabilities into various projects. To demonstrate this idea, I built this project to demonstrate how the volume on the computer could be controlled by gesturing with the thumb and index fingers.</p>
+<h4 id="demo">Demo</h4>
+<p align="center"><img src="../../images/portfolio/gifs/volumeControl.gif?raw=true" width="70%" height="70%"></p>
 <h4 id="project-details">Project Details</h4>
-<p>User Perspective: The users of this website will be employees of larger enterprise organizations who are having trouble managing their awards recognition process. These users can be split into two groups which include basic users who are authorized to give out rewards and admin users who serve in a managerial role to oversee the awards program for their entire enterprise. Both users will first encounter an authentication process where they will have to sign into an account, or create one if they have not done so yet. Basic users will need to submit a signature image in order to complete their account sign up since the signature will need to be used for their certificates. The authentication system will also feature a forgotten password recovery process which will email users a forgotten password to the registered email address. Once logged in, a basic user will have the ability to create an award. This will require the user to enter some basic information about the employee being generated and then the system will generate the certificate and email it to the awardee in a PDF format. Basic users will be able to see all the certificates they have awarded and will be able to delete them if they change their mind. When an admin user log in, they will not have the ability to create any awards. Instead, they will be presented with various data statistics in regards to the awards such as amounts, regions, and awarders. The admin user will also have the ability to add/edit/delete both other admin users and basic users.</p>
+<h5 id="language">Language</h5>
+<ul>
+<li>Python</li>
+</ul>
+<h5 id="primary-modules">Primary Modules</h5>
+<ul>
+<li>openCV</li>
+<li>MediaPipe</li>
+</ul>
+<h5 id="design-thoughts">Design Thoughts</h5>
+<ul>
+<li>MediaPipe is blazingly fast even running on just the CPU.</li>
+<li>This was a straightforward project and most of the time was spent on tuning the sensitivity of the volume control. Due to this sensitivity, I realized how much the z-value (the distance of the hand from the webcam) impacted the control. When the hand is far away from the camera, the volume can only be adjusted between a small range. Conversely, when the hand is very close to the camera, the volume tends to hit the maximum immediately. A potential solution would be figure out a way to estimate the z-value and interpolate this value with the distance between the thumb and index fingers.</li>
+<li>Sometimes the volume does not stay at the desired volume. This is due to the program still taking distance measurements as the user is moving their hand away from the webcam field of view. I worked around this issue by increasing the hand detection confidence of the neural net so that if the user moves their hand fast enough, the system will not detect it. You do have to keep in mind that boosting the confidence too high though will negatively impact the performance of the volume control as the net is more concerned with increasing its precision.</li>
+<li>Using the oshascript system call was a very expensive operation and dropped my framerate down to the single digits.</li>
+</ul>
+<h5 id="potential-use-cases">Potential Use Cases</h5>
+<ul>
+<li>Controlling advertisement mediums in retail locations such as malls</li>
+<li>Controlling screens in hospitals where contamination could pose a risk</li>
+</ul>
 </div>
       </div>
     </div>

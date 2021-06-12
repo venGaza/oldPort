@@ -144,7 +144,7 @@
 <li><a href="https://ghidra-sre.org/">Ghidra</a> - NSA&rsquo;s software reverse engineering suite (Optional)</li>
 </ul>
 <h3 id="analysis">Analysis</h3>
-<p>Let the fun begin! The goal of this challenge is to hack our way into the terrorist&rsquo;s account on the TerrorTime application to review chat information for pertinent information. Before we start, we need to set up an emulation environment to run the TerrorTime APK. I recommend using the Android Virtual Device (AVD) manager within <!-- raw HTML omitted -->Android Studio<!-- raw HTML omitted -->. AVD setup documentation can be found at the following link:</p>
+<p>Let the fun begin! The goal of this challenge is to hack our way into the terrorist&rsquo;s account on the TerrorTime application to review chat information for pertinent information. Before we start, we need to set up an emulation environment to run the TerrorTime APK. I recommend using the Android Virtual Device (AVD) manager within <mark>Android Studio</mark>. AVD setup documentation can be found at the following link:</p>
 <blockquote>
 <p><a href="https://developer.android.com/studio/run/emulator">https://developer.android.com/studio/run/emulator</a></p>
 </blockquote>
@@ -153,7 +153,7 @@
 <p>$$ \text{10 choices for each pin digit with replacement} = 0-9$$
 $$  10 \times 10 \times 10 \times 10 \times 10 \times 10 = 10^{6} $$
 $$ 1000000 \text{ combinations} $$</p>
-<p>If we could determine how the pin was being transformed (hashed) to be stored in the database, we could create a script to generate the <code>hash</code> of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <!-- raw HTML omitted -->JADX<!-- raw HTML omitted -->, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
+<p>If we could determine how the pin was being transformed (hashed) to be stored in the database, we could create a script to generate the <code>hash</code> of every single pin value until it matched what was in our database. When we find a match, we have the pin. Let&rsquo;s look deeper into the APK using <mark>JADX</mark>, a Dex to Java decompiler, to see if we can find the more information about the checkpin value within the source code.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Outputs Java source code to out folder</span>
 $ jadx -d out terrortime.apk 
 </code></pre></div><p>This command outputs a folder named <code>out</code> which contains the decompiled source code from the <code>APK</code>. Keep in mind that this is not a perfect process and the output will contain portions of code which were unable to be decompiled. Navigate to the <code>OUT &gt; SOURCES &gt; COM &gt; BADGUY &gt; TERRORTIME</code> folder. This folder contains the various classes that the APK uses. After a quick scan of the file names, I decided to look at the <code>LoginActivity.java</code> file to see if I could understand how the login page was verifying the pin input.</p>
@@ -202,7 +202,7 @@ pin <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><sp
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Pin not found&#34;</span>) <span style="color:#66d9ef">if</span> pin <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Pin: {}&#34;</span><span style="color:#f92672">.</span>format(pin))
 </code></pre></div><p>We now have the client ID and pin. Let&rsquo;s try to login into the application once again.</p>
 <blockquote>
-<p>Client ID: <a href="mailto:zoe--vhost-3823@terrortime.app">zoe--vhost-3823@terrortime.app</a> <!-- raw HTML omitted -->
+<p>Client ID: <a href="mailto:zoe--vhost-3823@terrortime.app">zoe--vhost-3823@terrortime.app</a> <br>
 Client Pin: 021086</p>
 </blockquote>
 <p>Success! We now have access to Zoe&rsquo;s TerrorTime account and discover 2 of her contacts, Joseph and Emanuel. Each contact has a chat history log stored and it is reasonable to assume Emanuel is the person of authority in the conversation compared to Joseph.</p>

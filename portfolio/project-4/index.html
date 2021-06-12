@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Computer Vision</title>
+  <title>Finger Counting</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dustin Jones blog/portfolio">
+  <meta name="description" content="Using computer vision to interpret basic hand gestures">
   <meta name="author" content="Dustin Jones">
   <meta name="generator" content="Hugo 0.83.1" />
 
@@ -89,12 +89,12 @@
   </nav>
 </header>
 
-  
+
 <section class="page-title bg-primary position-relative overflow-hidden">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="text-white font-tertiary">Computer Vision</h1>
+        <h1 class="text-white font-tertiary">Finger Counting</h1>
       </div>
     </div>
   </div>
@@ -114,39 +114,104 @@
 
 
 
-  
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        
-        <div class="col-lg-4 col-sm-6 mb-4">
-  <article class="card shadow">
-    <img class="rounded card-img-top" src="/images/portfolio/item-4.png" alt="Finger Counting">
-    <div class="card-body">
-      <h4 class="card-title"><a class="text-dark" href="https://vengaza.github.io/portfolio/project-4/">Finger Counting</a>
-      </h4>
-      <p class="cars-text">Table of Contents  Table of Contents Project Overview Demo Project Details  Language Primary Modules Design Thoughts Potential Use Cases    Project Overview Computer vision is a scientific field that allows the machine to develop an understanding of an image or video.</p>
-      <a href="https://vengaza.github.io/portfolio/project-4/" class="btn btn-sm btn-primary">Read More</a>
-    </div>
-  </article>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-5">
+        <img src="https://vengaza.github.io/images/portfolio/item-4.png" class="img-fluid w-100" alt="Finger Counting">
+      </div>
+      <div class="col-lg-7 mb-5 mb-lg-0 align-self-center">
+        <div class="row mx-0">
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-calendar"></i>
+              <div class="ml-3">
+                <h4>Date</h4>
+                <p>Jun 01, 2021</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-user"></i>
+              <div class="ml-3">
+                <h4>Type</h4>
+                <p>Personal</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-folder"></i>
+              <div class="ml-3">
+                <h4>Categories</h4>
+                <p>Computer vision, deep learning</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-link"></i>
+              <div class="ml-3">
+                <h4>Project Link</h4>
+                <p><a href="https://www.github.com/vengaza/fingerCounter">https://www.github.com/vengaza/fingerCounter</a></p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-lg-11">
+        <div class="content"><h4 id="table-of-contents">Table of Contents</h4>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#project-overview">Project Overview</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#project-details">Project Details</a>
+<ul>
+<li><a href="#language">Language</a></li>
+<li><a href="#primary-modules">Primary Modules</a></li>
+<li><a href="#design-thoughts">Design Thoughts</a></li>
+<li><a href="#potential-use-cases">Potential Use Cases</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="project-overview">Project Overview</h4>
+<p>Computer vision is a scientific field that allows the machine to develop an understanding of an image or video. With the use of openCV and Google&rsquo;s MediaPipe library, you can easily integrate computer vision capabilities into various projects. To demonstrate this idea, I built the FingerCounter project which allows users to leverage a neural network to interpret basic hand gestures for the numbers between 0 and 5.</p>
+<h4 id="demo">Demo</h4>
+<p align="center"><img src="../../images/portfolio/gifs/fingerCounter.gif?raw=true" width="70%" height="70%"></p>
+<h4 id="project-details">Project Details</h4>
+<h5 id="language">Language</h5>
+<ul>
+<li>Python</li>
+</ul>
+<h5 id="primary-modules">Primary Modules</h5>
+<ul>
+<li>openCV</li>
+<li>MediaPipe</li>
+</ul>
+<h5 id="design-thoughts">Design Thoughts</h5>
+<ul>
+<li>MediaPipe is blazingly fast even running on just the CPU.</li>
+<li>Implementing the algorithm for counting fingers seemed easy at first, but I realized how complex it could easily become. This program currently only succeeds at counting the fingers when the user uses their right hand with palm facing the camera. This limitation arises from the algorithm to distinguish if the thumb is extended or not.  One potential way around this is to add the capability to detect if the palm is facing the camera and then determining which hand is being evaluated based on the orientation of the thumb. (Sorry to my left-handed peers but you&rsquo;ll have to use the right hand to test this program for now)</li>
+<li>Overlaying a transparent PNG file over the openCV image took some time to understand because I did not have a true understanding of how the various image formats are shaped differently (in this case a 200x200x4 and 600,480,3).</li>
+</ul>
+<h5 id="potential-use-cases">Potential Use Cases</h5>
+<ul>
+<li>Interpreting sign language gestures</li>
+<li>Control system such as ordering at a restaurant or commanding a drone</li>
+<li>AR/VR</li>
+</ul>
 </div>
-        
-        <div class="col-lg-4 col-sm-6 mb-4">
-  <article class="card shadow">
-    <img class="rounded card-img-top" src="/images/portfolio/item-3.jpg" alt="Gesture Volume Control">
-    <div class="card-body">
-      <h4 class="card-title"><a class="text-dark" href="https://vengaza.github.io/portfolio/project-3/">Gesture Volume Control</a>
-      </h4>
-      <p class="cars-text">Table of Contents  Table of Contents Project Overview Demo Project Details  Language Primary Modules Design Thoughts Potential Use Cases    Project Overview Computer vision is a scientific field that allows the machine to develop an understanding of an image or video.</p>
-      <a href="https://vengaza.github.io/portfolio/project-3/" class="btn btn-sm btn-primary">Read More</a>
-    </div>
-  </article>
-</div>
-        
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
 
 
 

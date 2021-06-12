@@ -145,7 +145,7 @@
 <li><a href="https://www.wireshark.org/">WireShark</a> - Network Protocol Analyzer</li>
 </ul>
 <h3 id="analysis">Analysis</h3>
-<p>In this challenge, we are given a <code>.pcapng</code> file which is a packet capture format that contains a dump of data packets caught over a network. We will use <!-- raw HTML omitted -->WireShark<!-- raw HTML omitted -->, a network protocol analyzer, to open this file and view the captured data packets.</p>
+<p>In this challenge, we are given a <code>.pcapng</code> file which is a packet capture format that contains a dump of data packets caught over a network. We will use <mark>WireShark</mark>, a network protocol analyzer, to open this file and view the captured data packets.</p>
 <p>Even though there are over 9000 packets in this dump, we immediately notice that the 4th packet stands out because the &ldquo;terrorTime&rdquo; name is mentioned in its information section. This packet was sent using an application layer protocol called <code>HTTP</code>. Let&rsquo;s use a Wireshark filter to reduce the noise and list only the packets using the HTTP protocol.</p>
 <p>~9000 packets have now been reduced to 4! There are 2 GET requests with 2 responses which seem to have file objects associated with them. The first file is the missing APK. The other seems to be a text document. We&rsquo;ll extract and save these files with WireShark: <code>FILE &gt; EXPORT OBJECTS &gt; HTTP &gt; SAVE</code>.</p>
 <p>With the <code>terrortime.apk</code> in hand, we can now run the <code>sha256sum</code> command on the APK file to determine its hash value and complete the first task.</p>

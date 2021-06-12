@@ -148,17 +148,17 @@
 <p>In this challenge, we are presented with an SQLite database file and tasked with finding the IP (network) addresses of the OAUTH and XMPP servers. What is SQLite, OAUTH, and XMPP?</p>
 <blockquote>
 <p>SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. SQLite is the most used database engine in the world.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a><!-- raw HTML omitted --></p>
+<p>&ndash; <cite><a href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a></cite></p>
 </blockquote>
 <blockquote>
 <p>OAUTH is an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://oauth.net/">https://oauth.net/</a><!-- raw HTML omitted --></p>
+<p>&ndash; <cite><a href="https://oauth.net/">https://oauth.net/</a></cite></p>
 </blockquote>
 <blockquote>
 <p>XMPP is the Extensible Messaging and Presence Protocol, a set of open technologies for instant messaging, presence, multi-party chat, voice and video calls, collaboration, lightweight middleware, content syndication, and generalized routing of XML data.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://xmpp.org/about/technology-overview.html">https://xmpp.org/about/technology-overview.html</a><!-- raw HTML omitted --></p>
+<p>&ndash; <cite><a href="https://xmpp.org/about/technology-overview.html">https://xmpp.org/about/technology-overview.html</a></cite></p>
 </blockquote>
-<p>What separates SQLite from other relational databases management systems (RDBMS) is it embeds itself with the program rather than relying on a client-server model. This means no additional server is needed to run and manage this database. We will use a special tool to open the <code>clientDB.db</code> file and one of my favorite is <!-- raw HTML omitted -->DB Browser for SQLite<!-- raw HTML omitted -->. Open up the file and go to the <code>BROWSE DATA</code> tab.</p>
+<p>What separates SQLite from other relational databases management systems (RDBMS) is it embeds itself with the program rather than relying on a client-server model. This means no additional server is needed to run and manage this database. We will use a special tool to open the <code>clientDB.db</code> file and one of my favorite is <mark>DB Browser for SQLite</mark>. Open up the file and go to the <code>BROWSE DATA</code> tab.</p>
 <p>This database has 3 tables: clients, contacts, and messages. The contacts and messages tables have no data, so we&rsquo;ll focus on the clients table which has 1 row of input. The row has plenty of attribute columns, but there are two that stand out, the <code>xsip</code> and <code>asip</code>. These columns possess what seems to be domain names for our potential server targets.</p>
 <p>We can now use these domain names to perform a DNS lookup to determine the IP addresses by using the <code>dig</code> command on each of them in the terminal.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dig register.terrortime.app
